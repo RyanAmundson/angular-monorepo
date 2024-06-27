@@ -1,0 +1,92 @@
+<div class="option-explorer-container">
+  <mat-toolbar>
+    <span class="text-sm">Expirations for {{ticker()}}</span>
+    <button mat-button (click)="toggle()" class="space-x-16 width-full">
+      <mat-icon class="self-end">refresh</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <mat-tab-group
+    [selectedIndex]="currentTab()"
+    (selectedIndexChange)="currentTab.set($event)"
+    [animationDuration]="0"
+    [preserveContent]="true"
+    (animationDone)="tabChangeAnimitionDone()"
+    [dynamicHeight]="false"
+    [fitInkBarToContent]="false"
+  >
+    <!-- (selectedTabChange)="tabChange(expirations[$event.index])" -->
+    <ng-container
+      *ngFor="let expiration of expirations(); let group = index"
+    >
+      <mat-tab #matTab>
+        <ng-template mat-tab-label>
+          <!-- <mat-icon class="example-tab-icon">thumb_up</mat-icon> -->
+          {{expiration}}
+        </ng-template>
+        <!-- [origin]="group" [position]="group" -->
+        <div class="tab-content">
+          <div id="inset-placeholder" [@raiseLower]></div>
+          <div class="inner-tab-content" [@raiseLower]>
+            @if(contracts.has(expiration)) {
+                <opc-option-card
+                  *ngFor="let contract of contracts.get(expiration)"
+                  [callOption]="contract"
+                  [putOption]="contract"
+                  [flipToPutSide]="false"
+                >
+              </opc-option-card>
+            }
+          </div>
+        </div>
+      </mat-tab>
+    </ng-container>
+  </mat-tab-group>
+</div>
+<!-- 
+<ng-template mat-tab-label let-expiration>
+  <div
+    style="height: 20px"
+    [matBadgeHidden]="
+      (selectedOptionsByExpiration$ | async)?.get(expiration)?.bought == 0
+    "
+    [matBadge]="(selectedOptionsByExpiration$ | async)?.get(expiration)?.bought"
+    matBadgeOverlap="false"
+    matBadgePosition="above before"
+    matBadgeSize="small"
+  ></div>
+
+  <div
+    style="height: 20px; position: relative; left: 12px"
+    [matBadgeHidden]="
+      (selectedOptionsByExpiration$ | async)?.get(expiration)?.sold == 0
+    "
+    [matBadge]="(selectedOptionsByExpiration$ | async)?.get(expiration)?.sold"
+    matBadgeOverlap="false"
+    matBadgePosition="above before"
+    matBadgeSize="small"
+    matBadgeColor="warn"
+  ></div>
+
+  <span>
+    {{ expiration }}
+  </span>
+</ng-template> -->
+
+<ng-template #noTicker>
+  <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start">
+    <mat-tab>
+      <div class="tab-content">
+        <div id="inset-placeholder">
+          <div class="inner-tab-content">
+            <div class="no-ticker">No Results</div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</ng-template>
+
+<ng-template #noContent>
+  <div class="no-ticker">No Results</div>
+</ng-template>

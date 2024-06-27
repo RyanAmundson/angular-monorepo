@@ -1,0 +1,37 @@
+/* greeks-list.component.scss */
+:host {
+  --greek-symbol-font-size: 12px;
+  --greek-value-font-size: 12px;
+  --greek-item-margin-bottom: 12px;
+  --greek-symbol-margin-right: 16px;
+  --greek-item-padding: 4px 0;
+  --greek-item-align-items: center;
+}
+
+.greeks-list {
+  height:100%;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.greek-item {
+  display: flex;
+  align-items: var(--greek-item-align-items);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.greek-symbol {
+  font-size: var(--greek-symbol-font-size);
+  font-weight: bold;
+  margin-right: var(--greek-symbol-margin-right);
+  flex-shrink: 0;
+}
+
+.greek-value {
+  font-size: var(--greek-value-font-size);
+  flex-grow: 1;
+  text-align: right;
+}

@@ -1,0 +1,102 @@
+:root {
+  /* Font Sizes */
+  --font-size-1: 10px;
+  --font-size-2: 12px;
+  --font-size-3: 14px;
+  --font-size-4: 16px;
+  --font-size-5: 20px;
+
+  /* Font Colors */
+  --font-color-1: #000000;
+  --font-color-2: #333333;
+  --font-color-3: #666666;
+  --font-color-4: #999999;
+  --font-color-5: #CCCCCC;
+
+  /* Background Colors */
+  --background-color-1: #FFFFFF;
+  --background-color-2: #F7F7F7;
+  --background-color-3: #EFEFEF;
+  --background-color-4: #E0E0E0;
+  --background-color-5: #D0D0D0;
+
+  /* Border Colors */
+  --border-color-1: #CCCCCC;
+  --border-color-2: #BBBBBB;
+  --border-color-3: #AAAAAA;
+  --border-color-4: #999999;
+  --border-color-5: #888888;
+
+  /* Shadows */
+  --shadow-1: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-2: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-3: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+  --shadow-4: 0px 14px 28px rgba(0, 0, 0, 0.25), 0px 10px 10px rgba(0, 0, 0, 0.22);
+  --shadow-5: 0px 19px 38px rgba(0, 0, 0, 0.30), 0px 15px 12px rgba(0, 0, 0, 0.22);
+
+  /* Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+
+  /* Border Radius */
+  --border-radius-1: 2px;
+  --border-radius-2: 4px;
+  --border-radius-3: 8px;
+  --border-radius-4: 12px;
+  --border-radius-5: 16px;
+
+  /* Primary Colors */
+  --primary-color-1: #6200EA;
+  --primary-color-2: #3700B3;
+  --primary-color-3: #03DAC6;
+  --primary-color-4: #018786;
+  --primary-color-5: #000000;
+
+  /* Secondary Colors */
+  --secondary-color-1: #FF0266;
+  --secondary-color-2: #FF4081;
+  --secondary-color-3: #F50057;
+  --secondary-color-4: #C51162;
+  --secondary-color-5: #880E4F;
+}
+
+:root {
+  --primary-text-color-1: #111111;
+  --primary-font-color-1: #111111;
+  --primary-color-1: #111111;
+
+  --primary-text-color-2: rgb(171, 171, 171);
+  --primary-font-color-2: rgb(171, 171, 171);
+  --primary-color-2: rgb(171, 171, 171);
+
+  --primary-background-color: #1c1c1c;
+  --primary-background-color-2: #121212;
+
+
+  --background-image-1: url('/assets/images/polygon-scatter-haikei.svg');
+  --background-image-2: url('/assets/images/polygon-scatter-haikei (3).svg');
+  --dark-gray: rgb(18 18 18);
+  --mid-gray: rgb(28 28 28);
+  --light-gray: #292929;
+
+
+  --background-depth-5: black;
+  --background-depth-4: #121212;
+  --background-depth-3: #181818;
+  --background-depth-2: #292929;
+  --background-depth-1: #494949;
+
+
+
+  --ticker-info-pane-height: 40px;
+  --calls-puts-selection-height: 64px;
+  --selection-details-min-height: 40px;
+  --selection-details-max-height: calc(100vh - var(--ticker-info-pane-height) - var(--calls-puts-selection-height));
+  --option-explorer-max-height: calc(100vh - var(--ticker-info-pane-height) - var(--calls-puts-selection-height) - var(--selection-details-min-height));
+
+
+
+}

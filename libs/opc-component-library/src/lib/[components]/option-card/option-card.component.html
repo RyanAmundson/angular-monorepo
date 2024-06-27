@@ -1,0 +1,76 @@
+@if(activeOption()) {
+<opc-border-radius-layout-drag [disablePan]="disablePan()" [isComponentLayout]="true">
+  <ng-container slot="left-edge">
+    <opc-actions />
+  </ng-container>
+
+  <ng-container slot="right-edge">
+    <opc-greeks />
+  </ng-container>
+
+  <div
+    slot="content-1"
+    class="card-wrapper"
+    [ngClass]="{ flipped: flipToPutSide() }"
+    @card
+  >
+    <!-- Front Face Calls -->
+    <mat-card class="front-face call-option">
+      <ng-container [ngTemplateOutlet]="cardContentFront" />
+    </mat-card>
+
+    <!-- Back Face Puts -->
+    <mat-card class="back-face put-option">
+      <ng-container [ngTemplateOutlet]="cardContentBack" />
+    </mat-card>
+  </div>
+</opc-border-radius-layout-drag>
+}
+
+<ng-template #cardContentFront>
+  <div class="card-container">
+    <opc-card-header
+      [strike]="activeOption().strike"
+      [callOrPut]="'C'"
+      [openInterest]="activeOption().openInterest"
+      [bid]="activeOption().bid"
+      [ask]="activeOption().ask"
+    />
+
+    <div class="card-body">
+      <div class="greeks-simplified">
+        <div class="v">{{ volatility() | percent : '1.0-0' }} volatility</div>
+        <div class="t">{{ decay() | currency }} decay</div>
+      </div>
+
+      <div class="buy-sell-buttons">
+        <opc-buy-button [count]="activeOption()?.count() ?? 0" />
+        <opc-sell-button [count]="activeOption()?.count() ?? 0" />
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #cardContentBack>
+  <div class="card-container">
+    <opc-card-header
+      [strike]="activeOption().strike"
+      [callOrPut]="'P'"
+      [openInterest]="activeOption().openInterest"
+      [bid]="activeOption().bid"
+      [ask]="activeOption().ask"
+    />
+
+    <div class="card-body">
+      <div class="greeks-simplified">
+        <div class="v">{{ volatility() | percent : '1.0-0' }} volatility</div>
+        <div class="t">{{ decay() | currency }} decay</div>
+      </div>
+
+      <div class="buy-sell-buttons">
+        <opc-buy-button [count]="activeOption()?.count() ?? 0" />
+        <opc-sell-button [count]="activeOption()?.count() ?? 0" />
+      </div>
+    </div>
+  </div>
+</ng-template>

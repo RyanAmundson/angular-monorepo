@@ -1,0 +1,81 @@
+<div
+  class="layout-container"
+  [class.component-layout]="isComponentLayout"
+  [class.app-layout]="!isComponentLayout"
+  [style.background]="edgeColor"
+>
+  <div
+    class="edge top-edge"
+    [ngClass]="{
+      show: edgesVisible().top
+    }"
+  >
+    @if(edgesVisible().top) {
+    <ng-content select="[slot='top-edge']"></ng-content>
+    }
+  </div>
+
+  <div
+    class="edge right-edge"
+    [ngClass]="{
+      show: edgesVisible().right
+    }"
+  >
+    @if(edgesVisible().right) {
+    <ng-content select="[slot='right-edge']"></ng-content>
+    }
+  </div>
+
+  <div
+    class="edge bottom-edge"
+    [ngClass]="{
+      show: edgesVisible().bottom
+    }"
+  >
+    @if(edgesVisible().bottom) {
+    <ng-content select="[slot='bottom-edge']"></ng-content>
+    }
+  </div>
+
+  <div
+    class="edge left-edge"
+    [ngClass]="{
+      show: edgesVisible().left
+    }"
+  >
+    @if(edgesVisible().left) {
+    <ng-content select="[slot='left-edge']"></ng-content>
+    }
+  </div>
+
+  <div cdkDragBoundary=".layout-container" cdkDrag
+    #page1
+    class="layout-content draggable"
+    (cdkDragMoved)="dragMoved($event)"
+    [ngClass]="{
+      'border-radius-tl': TL_BR(),
+      'border-radius-tr': TR_BR(),
+      'border-radius-bl': BL_BR(),
+      'border-radius-br': BR_BR()
+    }"
+  >
+    <ng-content select="[slot='content-1']"></ng-content>
+  </div>
+
+  <div
+    #page2
+    class="content-layer-2"
+    [ngClass]="{
+      'border-radius-tl': TL_BR(),
+      'border-radius-tr': TR_BR(),
+      'border-radius-bl': BL_BR(),
+      'border-radius-br': BR_BR()
+    }"
+  >
+    <!-- <ng-content select="[slot='content-2']"></ng-content> -->
+  </div>
+</div>
+<button (click)="topEdge()">top-edge</button>
+<button (click)="rightEdge()">right-edge</button>
+<button (click)="bottomEdge()">bottom-edge</button>
+<button (click)="leftEdge()">left-edge</button>

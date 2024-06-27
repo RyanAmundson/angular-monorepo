@@ -1,0 +1,92 @@
+:host {
+  perspective: 500px;
+  border-radius: inherit;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 120px;
+  min-width: 350px;
+  position: relative;
+  font-family: var(--font-family, monospace);
+  border-radius: inherit;
+  background: transparent;
+  
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  
+  mat-card {
+    transition: border-radius 500ms;
+    outline: 1px solid var(--dark-gray, #6e6e6e);
+    border-radius: inherit;
+    display: flex;
+    justify-content: stretch;
+    padding: 0.2rem;
+    width: 100%;
+
+    color: var(--primary-font-color-1, #000);
+    background: var(--background-2, #474747);
+    background-size: cover;
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+      flex: 1 1 auto;
+
+      padding: var(--padding-1, 0.3rem);
+
+      .card-body {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        font-family: var(--font-family-monospace, monospace);
+        font-size: var(--font-size-body, 10px);
+        color: var(--secondary-font-color, rgb(171, 171, 171));
+        min-height: 40px;
+
+        .greeks-simplified {
+          flex: 1 1 50%;
+          display: flex;
+          flex-flow: column;
+          align-items: flex-start;
+          justify-content: flex-end;
+          font-size: var(--font-size-3, 10px);
+          line-height: 1.1;
+        }
+
+        .buy-sell-buttons {
+          display: flex;
+          flex: 1 1 50%;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+          gap:1rem;
+        }
+      }
+    }
+  }
+
+  &.flipped {
+    transform: rotateX(180deg);
+  }
+
+  mat-card.front-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  mat-card.back-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+  }
+}

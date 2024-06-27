@@ -1,0 +1,4 @@
+<button>
+  <span *ngIf="!count || count() <= 0"> Buy </span>
+  <span *ngIf="count() > 0"> +{{ count() }} </span>
+</button>

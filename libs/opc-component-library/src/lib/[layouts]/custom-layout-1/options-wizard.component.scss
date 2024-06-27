@@ -1,0 +1,55 @@
+.wizard-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: stretch;
+  align-items: stretch;
+
+background-color: #942c2c;
+
+  &.step-1 {}
+
+  &.step-2 {}
+
+  &.step-3 {}
+
+  opc-ticker-info-pane {
+    display: flex;
+    flex: 0 0 var(--ticker-info-pane-height);
+    // max-height: var(--ticker-info-pane-height);
+    // min-height: var(--ticker-info-pane-height);
+    height: var(--ticker-info-pane-height);
+    width: 100%;
+  }
+
+  .step-container {
+    overflow:hidden;
+    width:100%;
+    height:100%;
+    // background-color: transparent;
+    background-color: #121212;
+  }
+
+  opc-selection-details {
+    display: flex;
+    flex: 1 0 auto;
+    min-height: var(--selection-details-min-height);
+    max-height: var(--selection-details-max-height);
+  }
+
+  .selection-details-placeholder {
+    height:120px;
+    background-color: #292929;
+    z-index: 1;
+  }
+
+}

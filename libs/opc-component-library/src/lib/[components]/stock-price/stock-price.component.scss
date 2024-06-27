@@ -1,0 +1,52 @@
+:host {
+  align-self: center;
+  justify-self: center;
+  flex: 1 1 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.stock-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.digit {
+  display: inline-block;
+  overflow: hidden;
+  height: 2em;
+  width: 1em;
+  line-height: 2em;
+  position: relative;
+  font-size: 2em;
+}
+
+.digit-scroll {
+  display: block;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.scroll {
+  transform: translateY(0);
+}
+
+.decimal, .comma {
+  width: 0.5em; /* Adjust width for decimal point and comma */
+}

@@ -1,0 +1,9 @@
+<div class="stock-price">
+  <div *ngFor="let digit of currentPriceArray" class="digit" [ngClass]="{'decimal': digit === '.', 'comma': digit === ','}">
+    <div *ngFor="let d of digits" class="digit-scroll" [ngClass]="{'scroll': digit === d}">
+      {{ d }}
+    </div>
+    <div *ngIf="digit === '.'" class="digit-scroll decimal">.</div>
+    <div *ngIf="digit === ','" class="digit-scroll comma">,</div>
+  </div>
+</div>

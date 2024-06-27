@@ -1,0 +1,38 @@
+<div
+  class="wizard-container"
+  [@StepChange]="currentStep()"
+  [ngClass]="{
+  'step-1': currentStep() === 1,
+  'step-2': currentStep() === 2,
+  'step-3': currentStep() === 3,
+}"
+>
+  <!-- Ticker Info Pane -->
+  <ng-container *ngIf="showFixedTop()"> top</ng-container>
+
+  <div class="step-container" [ngSwitch]="currentStep()">
+    <!-- Step 1 -->
+    <ng-container *ngSwitchCase="1">
+      <div style="height: 400px; width: 300px; background: red"></div>
+    </ng-container>
+
+    <!-- Step 2 -->
+    <ng-container *ngSwitchCase="2">
+      <div style="height: 400px; width: 300px; background: green"></div>
+    </ng-container>
+
+    <!-- Step 3 -->
+    <ng-container *ngSwitchCase="3">
+      <div style="height: 400px; width: 300px; background: yellow"></div>
+    </ng-container>
+  </div>
+
+  <!-- Selection Details -->
+
+  <ng-container *ngIf="showBottomMenu()"> </ng-container>
+</div>
+
+<div>
+  <button (click)="previousStep()">Previous</button>
+  <button (click)="nextStep()">Next</button>
+</div>

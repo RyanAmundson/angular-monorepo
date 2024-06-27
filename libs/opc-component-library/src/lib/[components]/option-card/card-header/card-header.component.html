@@ -1,0 +1,16 @@
+<div class="card-header">
+  <div class="strike-value">
+    <span class="option-strike">
+      {{ strike() | currency }}
+      {{ callOrPut() === 'C' ? 'Call' : callOrPut() === 'P' ? 'Put' : ''}}
+    </span>
+    <span class="option-value">
+      @if(mid()) {
+      {{ mid() | currency }}
+      }
+    </span>
+  </div>
+  <div class="oi-ba">
+    <div class="option-open-interest">{{ openInterest() }} available</div>
+  </div>
+</div>

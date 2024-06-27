@@ -1,0 +1,73 @@
+<div #container
+  class="layout-container"
+  [class.component-layout]="isComponentLayout"
+  [class.app-layout]="!isComponentLayout"
+  [style.background]="edgeColor"
+>
+  <div
+    class="edge top-edge"
+    [ngClass]="{
+      show: edgesVisible().top
+    }"
+    [ngStyle]="{ height: edgesVisible().top + 'px' }"
+  >
+    @if(edgesVisible().top) {
+    <ng-content select="[slot='top-edge']"></ng-content>
+    }
+  </div>
+
+  <div
+    class="edge right-edge"
+    [ngClass]="{
+      show: edgesVisible().right
+    }"
+    [ngStyle]="{ width: edgesVisible().right + 'px' }"
+  >
+    @if(edgesVisible().right) {
+    <ng-content select="[slot='right-edge']"></ng-content>
+    }
+  </div>
+
+  <div
+    class="edge bottom-edge"
+    [ngClass]="{
+      show: edgesVisible().bottom
+    }"
+    [ngStyle]="{ height: edgesVisible().bottom + 'px' }"
+  >
+    @if(edgesVisible().bottom) {
+    <ng-content select="[slot='bottom-edge']"></ng-content>
+    }
+  </div>
+
+  <div
+    class="edge left-edge"
+    [ngClass]="{
+      show: edgesVisible().left
+    }"
+    [ngStyle]="{ width: edgesVisible().left + 'px' }"
+  >
+    @if(edgesVisible().left) {
+    <ng-content select="[slot='left-edge']"></ng-content>
+    }
+  </div>
+
+  <!-- cdkDragBoundary=".layout-container"
+  cdkDrag -->
+  <div
+    (panstart)="onPanStart($event)"
+    (panmove)="onPanMove($event)"
+    (panend)="onPanEnd($event)"
+    #draggable
+    class="layout-content draggable"
+    [ngClass]="{
+      'border-radius-tl': TL_BR(),
+      'border-radius-tr': TR_BR(),
+      'border-radius-bl': BL_BR(),
+      'border-radius-br': BR_BR()
+    }"
+  >
+    <ng-content select="[slot='content-1']"></ng-content>
+  </div>
+</div>
+

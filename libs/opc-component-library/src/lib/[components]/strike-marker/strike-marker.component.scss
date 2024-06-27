@@ -1,0 +1,16 @@
+.strike-marker {
+  width: 100%;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-family: monospace;
+  min-height: 30px;
+  flex-direction: row;
+  background: black;
+  color: rgb(171, 171, 171);
+  transition: all 0.3s;
+  border: 1px solid var(--primary-font-color-1);
+  // border-radius: 25px;
+}

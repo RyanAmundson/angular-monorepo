@@ -1,0 +1,50 @@
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  font-family: var(--font-family, monospace);
+  margin-bottom: 20px;
+  line-height: 1;
+
+  .strike-value {
+    font-size: var(--font-size-3, 20px);
+    color: var(--secondary-font-color, rgb(171, 171, 171));
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-family-monospace, monospace);
+  }
+
+  .option-value {
+    font-size: var(--font-size-option-value, 14px);
+  }
+
+  .oi-ba {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .option-open-interest {
+      align-self: flex-start;
+      color: var(--secondary-font-color, rgb(171, 171, 171));
+      font-family: var(--font-family-monospace, monospace);
+      font-size: var(--font-size-option-open-interest, 10px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: stretch;
+    }
+
+    .bid-ask {
+      color: var(--secondary-font-color, rgb(171, 171, 171));
+      font-family: var(--font-family-monospace, monospace);
+      font-size: var(--font-size-bid-ask, 10px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+}
