@@ -1,0 +1,37 @@
+<div class="ipz-filter-box">
+  <div class="ipz-filter-box-header">
+    <div class="ipz-filter-box-title">
+      {{title}}
+    </div>
+    <div class="ipz-filter-box-filter-button-container">
+      <button class="ipz-filter-box-filter-button btn btn-primary">
+        <i class="fa fa-filter" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="ipz-filter-box-add-button-container">
+      <button class="ipz-filter-box-add-button btn btn-primary" (click)="addCard()" [disabled]="addingCard">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="ipz-filter-box-filter-box-body">
+    <div #scrollContent class="ipz-filter-box-filter-content">
+      <div *ngIf="addingCard">
+        <div class="ipz-filter-box-item">
+          <textarea #txtarea placeholder="Description..." [(ngModel)]="newCardComment" class="ipz-filter-box-text-area"></textarea>
+          <button class="ipz-filter-box-save-btn btn btn-primary" [disabled]="newCardComment == '' && showErrors" (click)="saveCard(newCardComment)">Save</button>
+          <button class="ipz-filter-box-cancel-btn btn btn-warning" (click)="cancelNewCard()">Cancel</button>
+          <p *ngIf="newCardComment == '' && showErrors" class="form-error">Comment cannot be empty</p>
+        </div>
+      </div>
+      <div *ngFor="let card of cardList">
+        <div class="ipz-filter-box-item" #scrollItem >
+          <ng-container *ngComponentOutlet="card.type;content: card.context;"></ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

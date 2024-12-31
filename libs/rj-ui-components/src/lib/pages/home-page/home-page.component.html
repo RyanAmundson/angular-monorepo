@@ -1,0 +1,90 @@
+<rjui-layout-1 #layout>
+
+  <ng-template #nb name="navbar">
+    <div class="header">
+      <div class="title">
+        Home
+      </div>
+      <div class="menu-toggle">
+        <i class="fa fa-bars" (click)="layout.toggleMenu('rom')"></i>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #lsm name="leftsidemenu">
+  </ng-template>
+
+  <ng-template #rom name="rightoverlaymenu">
+    <mat-nav-list style="background-color:white;height:100%;">
+      <a mat-list-item href="#" [routerLink]="['/home']">
+        <b>Home</b>
+      </a>
+      <a mat-list-item href="#" [routerLink]="['/a11y']">Accessibility</a>
+      <a mat-list-item href="#" [routerLink]="['/buttons']">Buttons</a>
+      <a mat-list-item href="#" [routerLink]="['/cards']">Cards</a>
+      <a mat-list-item href="#" [routerLink]="['/chips']">Chips</a>
+      <a mat-list-item href="#" [routerLink]="['/containers']">Containers</a>
+      <a mat-list-item href="#" [routerLink]="['/dialogs']">Dialogs</a>
+      <a mat-list-item href="#" [routerLink]="['/inputs']">Inputs</a>
+      <a mat-list-item href="#" [routerLink]="['/i18n']">Internationalization</a>
+      <a mat-list-item href="#" [routerLink]="['/layouts']">Layouts</a>
+      <a mat-list-item href="#" [routerLink]="['/lists']">Lists</a>
+      <a mat-list-item href="#" [routerLink]="['/modals']">Modals</a>
+      <a mat-list-item href="#" [routerLink]="['/motion']">Motion</a>
+      <a mat-list-item href="#" [routerLink]="['/notifications']">Notifications</a>
+      <a mat-list-item href="#" [routerLink]="['/placeholders']">Placeholders</a>
+      <a mat-list-item href="#" [routerLink]="['/resources']">Resources</a>
+      <a mat-list-item href="#" [routerLink]="['/tables']">Tables</a>
+      <a mat-list-item href="#" [routerLink]="['/themes']">Themes</a>
+      <a mat-list-item href="#" [routerLink]="['/typography']">Typography</a>
+      <!-- <a mat-list-item href="#" [routerLink]="['/WFD']" [queryParams]="{'sections':[]}">WFD</a> -->
+    </mat-nav-list>
+  </ng-template>
+
+
+  <ng-template #modal name="modal">
+    <div class="test-modal">
+      this is a test modal
+    </div>
+  </ng-template>
+
+  <ng-template #mc name="maincontent">
+    <div style="padding:15px;">
+      <button (click)="layout.toggleMenu('modal')">modal</button>
+      <p>This is a library/toolkit for complete standalone UI Components written in Angular.</p>
+
+      <p>You will also find styling examples for proper implementation and scoping regarding css, scss and less.</p>
+
+      <h3>How it works</h3>
+      <p>
+        Under src/app there is an angular module called
+        <b>ui-component.module.ts</b>. This module is the exported module which gets packaged and shipped. The
+        app.module.ts
+        is for running the development site(what you are currently looking at).
+      </p>
+      <p>
+        Add re-usable components to this project and be sure to document them and make them as agnostic as possible.
+        Provide lots
+        of configuration options.
+      </p>
+      <h3>Releasing</h3>
+      <p>
+        When you go to package and ship to local npm, you should version the package.json with semver accurately to
+        represent the
+        depth of changes and if it is breaking to previous versions.
+      </p>
+      <p>
+        To generate a distributable .targz, run 'npm run release'. Then if your npm registry is set correctly(make sure
+        its not going
+        to the public npm) then run npm publish.( publish can take a registry as an argument).
+      </p>
+    </div>
+    <div style="height:400px;width:400px;">
+      <!-- <op-prof-viz></op-prof-viz> -->
+    </div>
+  </ng-template>
+
+  <ng-template #rsm name="rightsidemenu">
+  </ng-template>
+
+</rjui-layout-1>

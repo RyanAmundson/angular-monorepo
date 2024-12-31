@@ -1,0 +1,19 @@
+
+
+@import 'basic-theme';
+
+.header{
+    @include header($z-index:2);
+}
+
+.main-content{
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-content: stretch;
+    justify-items: stretch;
+    align-items: stretch;
+}

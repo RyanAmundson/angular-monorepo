@@ -1,0 +1,155 @@
+@import '../../../assets/styles/_variables.scss';
+$feature-name:ipz-filter-box;
+
+.#{$feature-name}{
+    position:relative;
+    width:100%;
+    background-color:#d7d7d7;
+    height:100%;
+    overflow:auto;
+
+
+    .#{$feature-name}-header{
+        height:10%;
+        width:inherit;
+        background-color:blue;
+        overflow:hidden;
+        display:table;
+
+        * {
+            margin-top:20px;
+            margin-bottom:20px;
+            white-space: nowrap;
+            display:inline-block;
+            vertical-align:middle;
+        }
+
+        .#{$feature-name}-title,.#{$feature-name}-filter-button-container,.#{$feature-name}-add-button-container{
+            font-family:Arial, Helvetica, sans-serif;
+            white-space: nowrap;
+            overflow:hidden;
+            display:table-cell;               
+
+        }
+
+        .#{$feature-name}-title{
+            letter-spacing: 1px;
+            color:white;
+            padding:5px 5px 3px 10px;
+            text-transform: uppercase;
+            font-weight:600;
+        }
+
+        .#{$feature-name}-filter-button-container{
+            float:right;
+            margin:5px;
+            margin-right:10px;
+            .#{$feature-name}-filter-button{
+                width:50px;
+                height:50px;
+                background-color:lightblue;
+                border:darkblue;
+                border-radius:0px;
+                color:white;
+                    &:active{
+                    
+                    }
+                    &:hover{
+                        
+                    }
+                    &:disabled{
+
+                    }
+                    &:focus{
+                     
+                    } 
+                    
+                    i{
+                        margin:0 auto; 
+                     }
+                               
+            }
+        }
+
+        .#{$feature-name}-add-button-container{
+            float:right;
+            margin:5px;
+
+            .#{$feature-name}-add-button{
+                width:50px;
+                height:50px;
+                background-color:lightblue;
+                border:darkblue;
+                color:white;
+                border-radius:0px;
+                &:active{
+                }
+                &:hover{
+
+                }
+                &:disabled{
+
+                }
+                &:focus{
+                    
+                }
+                
+                i{
+                   margin:0 auto; 
+                }
+                
+            }
+        }
+    }
+
+    .#{$feature-name}-filter-box-body{    
+        min-height:200px;
+        height:90%;
+        width:100%;
+        overflow:auto;
+        .#{$feature-name}-filter-content{
+            height:100%;
+            width:100%;
+            overflow-x:auto;
+            overflow-y: auto;  
+            
+            .#{$feature-name}-item {
+                overflow:hidden;
+                margin:10px;
+                min-height:100px;
+
+                .#{$feature-name}-text-area{
+                    width:100%;
+                    min-height:80px;
+                    height:80%;
+                }
+
+                .#{$feature-name}-save-btn, .#{$feature-name}-cancel-btn{
+                    width:50%;
+                    display:inline-block;
+                    color:white;
+                    border-radius:0px;
+                    height:30px;
+                    padding:0px;
+
+                }
+
+                .#{$feature-name}-save-btn{
+                    border: 2px solid #0066a1;
+                    background-color: lightblue;
+                }
+                .#{$feature-name}-cancel-btn{
+                    float:right;
+                    border: 2px solid #d69a00;
+                    background-color: #f7b400;
+                }
+            }
+        }
+        
+    }
+}
+
+.form-error{
+    color:red;
+    font-size:0.7rem;
+}

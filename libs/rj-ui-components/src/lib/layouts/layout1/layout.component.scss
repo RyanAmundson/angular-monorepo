@@ -1,0 +1,215 @@
+@import '../../themes/_basic-theme.scss';
+
+[aa-layout] {
+    // if parent has grid cell called layout
+    grid-row: 1;
+    grid-column: 1;
+    grid-area: layout;
+
+    display: grid;
+
+    grid-template: 
+    "lsmf nb nb nb rsmf"
+    "lsmf qn qn qn rsmf"
+    "lsmf lsm mc rsm rsmf";
+
+    grid-template-areas: 
+    "lsmf nb nb nb rsmf"
+    "lsmf qn qn qn rsmf"
+    "lsmf lsm mc rsm rsmf";
+    grid-template-columns: min-content min-content 1fr min-content min-content;
+    grid-template-rows: min-content min-content 1fr;
+    
+    justify-content: stretch;
+    align-items: stretch;
+    justify-self: stretch;
+    align-self: stretch;
+    overflow: hidden;
+    
+    height: 100%;
+    width: 100%;
+    // @include z-index(1);
+    
+    [aa-quicknav] {
+        grid-area: qn;
+        grid-column: 2 / span 3;
+        grid-row: 2;
+        // @include z-index(1);
+    }
+
+    [aa-navbar] {
+        grid-area: nb;
+        grid-column: 2 / span 3;
+        grid-row: 1;
+
+        display: flex;
+        flex: 1 1 100%;
+        @include z-index(1);
+        
+        .menu-toggle {
+            display: flex;
+            background: rgba(0, 0, 0, 0.1);
+            color: rgba(97, 91, 91, 0.568);
+            align-items: center;
+            justify-content: center;
+            @include z-index(1);
+
+            padding: 5px;
+            &:hover {
+                background: black;
+                color: white;
+            }
+        }
+    }
+
+    [aa-lsm] {
+        position: relative;
+        grid-area: lsm;
+        grid-column: 2;
+        grid-row: 3;
+
+        overflow-y: auto;
+        @include z-index(1);
+    }
+
+    [aa-lsmf] {
+        grid-area: lsmf;
+        position: relative;
+        justify-content: stretch;
+        align-content: stretch;
+        overflow-y: auto;
+        grid-column: 1;
+        grid-row: 1 / span 3;
+
+        @include z-index(1);
+    }
+
+    [aa-lom] {
+        display: grid;
+        grid-column: 1 / span 4;
+        grid-row: 1 / span 3;
+
+        justify-items: start;
+        align-items: stretch;
+
+        background-color: black;
+        background: rgba(0, 0, 0, 0.3);
+        @include z-index(3);
+        [aa-lom-content] { //doesn't scroll well
+            display: grid;
+            overflow-y: auto;
+            overflow-x: hidden;
+            @include z-index(4);
+        }
+    }
+
+    [aa-rom] { //doesn't scroll well
+        display: grid;
+        grid-column: 1 / span 4;
+        grid-row: 1 / span 3;
+
+        justify-items: end;
+        align-items: stretch;
+        
+        background-color: black;
+        background: rgba(0, 0, 0, 0.3);
+        @include z-index(4);
+
+        [aa-rom-content] {
+            display: grid;
+            overflow-y: auto;
+            overflow-x: hidden;
+            @include z-index(4);
+
+            grid-column: 4 / span 1;
+            grid-row: 1 / span 3;
+        }
+    }
+
+    [aa-mc] {
+        grid-area: mc;
+        grid-column: 3;
+        grid-row: 3;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    [aa-modal] {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+        background: rgba(0, 0, 0, 0.3);
+        @include z-index(3);
+
+        [aa-modal-box] {
+            display: flex;
+            transform: translateY(-100%);
+            background: transparent;
+            @include z-index(4);
+        }
+    }
+
+    [aa-rsm] {
+        grid-area: rsm;
+        grid-column: 4;
+        grid-row: 3;
+        position: relative;
+        justify-content: stretch;
+        align-content: stretch;
+        overflow-y: auto;
+        @include z-index(1);
+    }
+
+    [aa-rsmf] {
+        grid-area: rsmf;
+        grid-column: 5 / span 1;
+        grid-row: 1 / span 3;
+        position: relative;
+        justify-content: stretch;
+        align-content: stretch;
+        overflow-y: auto;
+        @include z-index(1);
+    }
+
+    [aa-overlay] { //this has to be fixed for nested layouts
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        @include z-index(4);
+        .close-overlay {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    [aa-alerts-container] {
+        transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        position: fixed;
+        left: 50%;
+        right: 50%;
+        top: 100px;
+        display: flex;
+        @include z-index(5);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;      
+    }
+}
+

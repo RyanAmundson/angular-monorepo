@@ -1,0 +1,11 @@
+<div class="card" [ngStyle]="{'color':color,'border-color':color}" [ngClass]="{'active':active}">
+  <div>  
+    <div class="card-title">
+      {{title}}
+    </div>
+    <div class="card-sub-title">
+        <i class="fa fa-{{icon}}" aria-hidden="true"></i>
+      {{type}}
+    </div>
+  </div>
+</div>

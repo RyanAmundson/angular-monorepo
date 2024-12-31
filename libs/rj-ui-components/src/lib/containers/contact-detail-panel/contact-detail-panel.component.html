@@ -1,0 +1,20 @@
+<div class="panel">
+    <div class="panel-heading-blue">
+        <div class="panel-title">
+            {{title}}
+
+            <i class="fa" [ngClass]="{'fa-plus':!_flyoutIsOpen,'fa-times':_flyoutIsOpen}" *ngIf="flyoutContainer?.children?.length > 0" (click)="toggleFlyout(!_flyoutIsOpen)">
+            </i>
+            <div class="flyout">              
+                <div #flyoutContainer class="flyout-container" [ngClass]="{'fadeIn': _flyoutIsOpen,'fadeOut':!_flyoutIsOpen}">
+                   <ng-content select="contact-detail-panel-flyout"></ng-content>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <AA-loading-icon *ngIf="loading"></AA-loading-icon>
+        <AA-no-results *ngIf="noResults" [text]="noResultsText || 'No Results'"></AA-no-results>
+        <ng-content></ng-content>
+    </div>
+</div>

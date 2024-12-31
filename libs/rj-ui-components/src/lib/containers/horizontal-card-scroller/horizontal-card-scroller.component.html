@@ -1,0 +1,14 @@
+<div class="horizontal-card-scroller">
+    <div class="scroll-left" [ngClass]="{'no-scroll':scrollOffset == 0}" (click)="scroll($event,'left')">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
+    <div
+        class="scroll-right" [ngClass]="{'no-scroll':widthOfContent == (widthOfContainer + scrollOffset)}" (click)="scroll($event,'right')">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </div>
+    <div #scrollContent class="scroll-content" [ngClass]="{'centered':centered}">
+        <div (click)="cardClicked(card)" #scrollItem [@cardFlipIn]="card.status" class="item" *ngFor="let card of cardMap">
+            <ng-container *ngComponentOutlet="cardHolder;content: [[card.view]];"></ng-container>
+        </div>
+    </div>
+</div>

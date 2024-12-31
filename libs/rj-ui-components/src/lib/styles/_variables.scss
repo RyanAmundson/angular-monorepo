@@ -1,0 +1,84 @@
+@import '../themes/_basic-theme.scss';
+
+
+
+$primary-color:purple;
+$secondary-color: lightgray;
+$success-color: green;
+$warning-color:yellow;
+$danger-color:red;
+$cancel-color:gray;
+// Classic brand colors
+$brand-main:    #3F51B5;
+$brand-primary: #2095f2;
+$brand-success: #4caf50;
+$brand-info:    #3F51B5 ;
+$brand-warning: #fe9700;
+$brand-danger:  #f34235;
+
+$text-color:   #585f69;
+$text-muted: #8394a9;
+
+$link-color: $brand-info;
+$link-hover-color: darken($link-color, 15%);
+
+$font-size-base:          1rem;
+
+$font-family-sans-serif:  'Roboto', Helvetica, Arial, sans-serif;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family-base:        $font-family-sans-serif;
+
+$border-radius-base:  3px;
+$border-radius-large: 4px;
+$border-radius-small: 2px;
+
+$gray:         #A0AAB2;
+$gray-light:   #e6e9ee;
+$gray-lighter: #f4f5f5;
+
+// New brand colors
+$brand-inverse:        #363f45;
+$brand-amber:          #FFC107;
+$brand-pink:           #e91e63;
+$brand-purple:         #6639b6;
+$brand-orange:         #fe5621;
+$brand-noir:           #212121;
+$brand-white:          #fff;
+$brand-highlight-blue: #caecfc;
+$brand-secondary:      #8845AF;
+
+// Brand color Variants
+
+$amountOfLight: 6%;
+
+$brand-primary-light:          lighten($brand-primary, $amountOfLight);
+$brand-success-light:          lighten($brand-success, $amountOfLight);
+$brand-info-light:             lighten($brand-info, $amountOfLight);
+$brand-warning-light:          lighten($brand-warning, $amountOfLight);
+$brand-danger-light:           lighten($brand-danger, $amountOfLight);
+$brand-inverse-light:          lighten($brand-inverse, $amountOfLight);
+$brand-amber-light:            lighten($brand-amber, $amountOfLight);
+$brand-pink-light:             lighten($brand-pink, $amountOfLight);
+$brand-purple-light:           lighten($brand-purple, $amountOfLight);
+$brand-orange-light:           lighten($brand-orange, $amountOfLight);
+
+$brand-primary-dark:           darken($brand-primary, $amountOfLight);
+$brand-success-dark:           darken($brand-success, $amountOfLight);
+$brand-info-dark:              darken($brand-info, $amountOfLight);
+$brand-warning-dark:           darken($brand-warning, $amountOfLight);
+$brand-danger-dark:            darken($brand-danger, $amountOfLight);
+$brand-inverse-dark:           darken($brand-inverse, $amountOfLight);
+$brand-amber-dark:             darken($brand-amber, $amountOfLight);
+$brand-pink-dark:              darken($brand-pink, $amountOfLight);
+$brand-purple-dark:            darken($brand-purple, $amountOfLight);
+$brand-orange-dark:            darken($brand-orange, $amountOfLight);
+
+$desktop-lg:      "only screen and (min-width: 1200px)";
+$desktop:         "only screen and (min-width: 992px)";
+$tablet:          "only screen and (min-width: 768px)";
+$mobile:          "only screen and (min-width: 480)";
+$upto-desktop-lg: "only screen and (max-width: 1199px)";
+$upto-desktop:    "only screen and (max-width: 991px)";
+$upto-tablet:     "only screen and (max-width: 767px)";
+$upto-mobile:     "only screen and (max-width: 479px)";
+

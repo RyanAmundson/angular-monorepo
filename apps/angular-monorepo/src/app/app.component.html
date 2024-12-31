@@ -1,10 +1,190 @@
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
-<opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/>
+<!-- <opc-option-card [callOption]="mockCallOption" [putOption]="mockPutOption" [flipToPutSide]="false"/> -->
+<rjui-layout-1 #layout>
+    <ng-template #nb name="navbar">
+        <div class="header">
+            <div class="title">
+                UI Components
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #qn name="quicknav">
+        <div class="jump-to-bar">
+            <button class="layout-button" mat-button [matMenuTriggerFor]="menu">Toggle Layout</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="layout.toggleMenu('rom');">
+                    <i class="fa fa-check" *ngIf="layout.state.includes('rom')"></i> Right Side Overlay Menu
+                </button>
+                <button mat-menu-item (click)="layout.toggleMenu('rsm')">
+                    <i class="fa fa-check" *ngIf="layout.state.includes('rsm')"></i>Right Side Menu
+                </button>
+                <button mat-menu-item (click)="layout.toggleMenu('lom')">
+                    <i class="fa fa-check" *ngIf="layout.state.includes('lom')"></i>Left Side Overlay Menu
+                </button>
+                <button mat-menu-item (click)="layout.toggleMenu('lsm')">
+                    <i class="fa fa-check" *ngIf="layout.state.includes('lsm')"></i>Left Side Menu
+                </button>
+                <button mat-menu-item (click)="layout.toggleMenu('lsmf')">
+                    <i class="fa fa-check" *ngIf="layout.state.includes('lsmf')"></i>Left Side Menu Full
+                </button>
+                <button mat-menu-item (click)="layout.toggleMenu('nb')">
+                    <i class="fa fa-check" *ngIf="layout.state.includes('nb')"></i>Navbar
+                </button>
+                <button mat-menu-item (click)="layout.toggleMenu('qn')">
+                    <i class="fa fa-check" *ngIf="layout.state.includes('qn')"></i>Quick Nav
+                </button>
+                <button mat-menu-item (click)="layout.toggleMenu('overlay')">
+                    <i class="fa fa-check" *ngIf="layout.state.includes('overlay')"></i>Overlay
+                </button>
+                <button mat-menu-item (click)="layout.toggleMenu('modal')">
+                    <i class="fa fa-check" *ngIf="layout.state.includes('modal')"></i>Modal
+                </button>
+            </mat-menu>
+            
+            <button class="layout-button" mat-button [matMenuTriggerFor]="menu2">Toggle Content</button>
+            <mat-menu #menu2="matMenu">
+                <button mat-menu-item (click)="romContent = !romContent"> <i class="fa fa-check" *ngIf="romContent"></i>Right Side Overlay Menu</button>
+                <button mat-menu-item (click)="rsmContent = !rsmContent"> <i class="fa fa-check" *ngIf="rsmContent"></i>Right Side Menu</button>
+                <button mat-menu-item (click)="lomContent = !lomContent"> <i class="fa fa-check" *ngIf="lomContent"></i>Left Side Overlay Menu</button>
+                <button mat-menu-item (click)="lsmContent = !lsmContent"> <i class="fa fa-check" *ngIf="lsmContent"></i>Left Side Menu</button>
+                <button mat-menu-item (click)="lsmfContent = !lsmfContent"> <i class="fa fa-check" *ngIf="lsmfContent"></i>Left Side Menu Full</button>
+                <button mat-menu-item (click)="nbContent = !nbContent"> <i class="fa fa-check" *ngIf="nbContent"></i>Navbar</button>
+                <button mat-menu-item (click)="qnContent = !qnContent"> <i class="fa fa-check" *ngIf="qnContent"></i>Quick Nav</button>
+            </mat-menu>
+        </div>
+    </ng-template>
+
+    <ng-template #lsmf name="leftsidemenufull">
+        <mat-nav-list style="background-color:white;" *ngIf="lsmfContent">
+            <a mat-list-item href="#" [routerLink]="['/home']">
+                <b>Home</b>
+            </a>
+            <a mat-list-item href="#" [routerLink]="['/a11y']">Accessibility</a>
+            <a mat-list-item href="#" [routerLink]="['/buttons']">Buttons</a>
+            <a mat-list-item href="#" [routerLink]="['/cards']">Cards</a>
+            <a mat-list-item href="#" [routerLink]="['/chips']">Chips</a>
+            <a mat-list-item href="#" [routerLink]="['/containers']">Containers</a>
+            <a mat-list-item href="#" [routerLink]="['/dialogs']">Dialogs</a>
+            <a mat-list-item href="#" [routerLink]="['/frames']">Frames</a>
+            <a mat-list-item href="#" [routerLink]="['/inputs']">Inputs</a>
+            <a mat-list-item href="#" [routerLink]="['/i18n']">Internationalization</a>
+            <a mat-list-item href="#" [routerLink]="['/layouts']">Layouts</a>
+            <a mat-list-item href="#" [routerLink]="['/lists']">Lists</a>
+            <a mat-list-item href="#" [routerLink]="['/modals']">Modals</a>
+            <a mat-list-item href="#" [routerLink]="['/motion']">Motion</a>
+            <a mat-list-item href="#" [routerLink]="['/notifications']">Notifications</a>
+            <a mat-list-item href="#" [routerLink]="['/placeholders']">Placeholders</a>
+            <a mat-list-item href="#" [routerLink]="['/resources']">Resources</a>
+            <a mat-list-item href="#" [routerLink]="['/tables']">Tables</a>
+            <a mat-list-item href="#" [routerLink]="['/themes']">Themes</a>
+            <a mat-list-item href="#" [routerLink]="['/typography']">Typography</a>
+        </mat-nav-list>
+    </ng-template>
+
+    <ng-template #lsm name="leftsidemenu">
+        <mat-nav-list style="background-color:white;" *ngIf="lsmContent">
+            <a mat-list-item href="#" [routerLink]="['/home']">
+                <b>Home</b>
+            </a>
+            <a mat-list-item href="#" [routerLink]="['/a11y']">Accessibility</a>
+            <a mat-list-item href="#" [routerLink]="['/buttons']">Buttons</a>
+            <a mat-list-item href="#" [routerLink]="['/cards']">Cards</a>
+            <a mat-list-item href="#" [routerLink]="['/chips']">Chips</a>
+            <a mat-list-item href="#" [routerLink]="['/containers']">Containers</a>
+            <a mat-list-item href="#" [routerLink]="['/dialogs']">Dialogs</a>
+            <a mat-list-item href="#" [routerLink]="['/frames']">Frames</a>
+            <a mat-list-item href="#" [routerLink]="['/inputs']">Inputs</a>
+            <a mat-list-item href="#" [routerLink]="['/i18n']">Internationalization</a>
+            <a mat-list-item href="#" [routerLink]="['/layouts']">Layouts</a>
+            <a mat-list-item href="#" [routerLink]="['/lists']">Lists</a>
+            <a mat-list-item href="#" [routerLink]="['/modals']">Modals</a>
+            <a mat-list-item href="#" [routerLink]="['/motion']">Motion</a>
+            <a mat-list-item href="#" [routerLink]="['/notifications']">Notifications</a>
+            <a mat-list-item href="#" [routerLink]="['/placeholders']">Placeholders</a>
+            <a mat-list-item href="#" [routerLink]="['/resources']">Resources</a>
+            <a mat-list-item href="#" [routerLink]="['/tables']">Tables</a>
+            <a mat-list-item href="#" [routerLink]="['/themes']">Themes</a>
+            <a mat-list-item href="#" [routerLink]="['/typography']">Typography</a>
+        </mat-nav-list>
+    </ng-template>
+
+    <ng-template #rom name="rightoverlaymenu">
+            <mat-nav-list style="background-color:white;" *ngIf="romContent" color="dark">
+                <a mat-list-item href="#" [routerLink]="['/home']">
+                    <b>Home</b>
+                </a>
+                <a mat-list-item href="#" [routerLink]="['/a11y']">Accessibility</a>
+                <a mat-list-item href="#" [routerLink]="['/buttons']">Buttons</a>
+                <a mat-list-item href="#" [routerLink]="['/cards']">Cards</a>
+                <a mat-list-item href="#" [routerLink]="['/chips']">Chips</a>
+                <a mat-list-item href="#" [routerLink]="['/containers']">Containers</a>
+                <a mat-list-item href="#" [routerLink]="['/dialogs']">Dialogs</a>
+                <a mat-list-item href="#" [routerLink]="['/frames']">Frames</a>
+                <a mat-list-item href="#" [routerLink]="['/inputs']">Inputs</a>
+                <a mat-list-item href="#" [routerLink]="['/i18n']">Internationalization</a>
+                <a mat-list-item href="#" [routerLink]="['/layouts']">Layouts</a>
+                <a mat-list-item href="#" [routerLink]="['/lists']">Lists</a>
+                <a mat-list-item href="#" [routerLink]="['/modals']">Modals</a>
+                <a mat-list-item href="#" [routerLink]="['/motion']">Motion</a>
+                <a mat-list-item href="#" [routerLink]="['/notifications']">Notifications</a>
+                <a mat-list-item href="#" [routerLink]="['/placeholders']">Placeholders</a>
+                <a mat-list-item href="#" [routerLink]="['/resources']">Resources</a>
+                <a mat-list-item href="#" [routerLink]="['/tables']">Tables</a>
+                <a mat-list-item href="#" [routerLink]="['/themes']">Themes</a>
+                <a mat-list-item href="#" [routerLink]="['/typography']">Typography</a>
+                <!-- <a mat-list-item href="#" [routerLink]="['/WFD']" [queryParams]="{'sections':[]}">WFD</a> -->
+            </mat-nav-list>
+    </ng-template>
+
+    <ng-template #lom name="leftoverlaymenu" *ngIf="lomContent">
+        <mat-nav-list style="background-color:white;">
+            <!-- *ngIf="lomContent" -->
+            <!-- <a>
+                <i class="fa fa-times" style="float:right;margin:15px;" (click)="lomContent = !lomContent"></i>
+            </a> -->
+            <a mat-list-item href="#" [routerLink]="['/home']">
+                <b>Home</b>
+            </a>
+            <a mat-list-item href="#" [routerLink]="['/a11y']">Accessibility</a>
+            <a mat-list-item href="#" [routerLink]="['/buttons']">Buttons</a>
+            <a mat-list-item href="#" [routerLink]="['/cards']">Cards</a>
+            <a mat-list-item href="#" [routerLink]="['/chips']">Chips</a>
+            <a mat-list-item href="#" [routerLink]="['/containers']">Containers</a>
+            <a mat-list-item href="#" [routerLink]="['/dialogs']">Dialogs</a>
+            <a mat-list-item href="#" [routerLink]="['/frames']">Frames</a>
+            <a mat-list-item href="#" [routerLink]="['/inputs']">Inputs</a>
+            <a mat-list-item href="#" [routerLink]="['/i18n']">Internationalization</a>
+            <a mat-list-item href="#" [routerLink]="['/layouts']">Layouts</a>
+            <a mat-list-item href="#" [routerLink]="['/lists']">Lists</a>
+            <a mat-list-item href="#" [routerLink]="['/modals']">Modals</a>
+            <a mat-list-item href="#" [routerLink]="['/motion']">Motion</a>
+            <a mat-list-item href="#" [routerLink]="['/notifications']">Notifications</a>
+            <a mat-list-item href="#" [routerLink]="['/placeholders']">Placeholders</a>
+            <a mat-list-item href="#" [routerLink]="['/resources']">Resources</a>
+            <a mat-list-item href="#" [routerLink]="['/tables']">Tables</a>
+            <a mat-list-item href="#" [routerLink]="['/themes']">Themes</a>
+            <a mat-list-item href="#" [routerLink]="['/typography']">Typography</a>
+            <!-- <a mat-list-item href="#" [routerLink]="['/WFD']" [queryParams]="{'sections':[]}">WFD</a> -->
+        </mat-nav-list>
+    </ng-template>
+
+    <ng-template #rsm name="rightsidemenu">
+    </ng-template>
+
+    <ng-template #mc name="maincontent">
+        <router-outlet></router-outlet>
+    </ng-template>
+
+    <ng-template #modal name="modal">
+        <!-- <div *ngIf="modalContent" class="test-modal">
+            this is a test modal
+        </div> -->
+    </ng-template>
+
+    <ng-template #overlay name="overlay">
+        <div class="overlay">
+            this is a test Overlay
+        </div>
+    </ng-template>
+
+</rjui-layout-1>

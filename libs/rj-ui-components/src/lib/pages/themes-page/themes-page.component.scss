@@ -1,0 +1,40 @@
+
+@import '../../_app-theme.scss';
+
+
+
+.header{
+    @include header($z-index:2);
+}
+
+.main-content{
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: center;
+    justify-content: flex-start;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    height:100%;
+
+    .description {
+        margin:theme(margin,2);
+    }
+}
+
+.card-list{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

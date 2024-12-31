@@ -1,0 +1,34 @@
+@import '../../themes/_basic-theme.scss';
+
+
+.ipz-card-2{
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+    justify-content:stretch;
+    background-color:theme(secondary-color);
+    border:theme(border);
+    
+    .ipz-card-2-data{
+        display:Flex;
+        flex: 1 1 30%;
+        align-items:center;
+        justify-content: center;
+
+        font-weight: theme(font-weight);
+        font-size:theme(font-size);
+        border-right:theme(border);
+        padding:theme(padding);
+
+    }
+    .ipz-card-2-label{
+        display:Flex;
+        flex: 1 1 70%;
+        align-items:center;
+        justify-content: center;
+        padding:theme(padding);
+
+        font-weight: theme(font-weight);
+        font-size:theme(font-size);
+    }
+}

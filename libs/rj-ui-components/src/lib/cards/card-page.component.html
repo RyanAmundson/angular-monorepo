@@ -1,0 +1,114 @@
+<rjui-generic-page title="Cards">
+  <rjui-documentation id="doc1" title="Card 1">
+    <ng-container example>
+        <rjui-card-1 style="background-color:white;" [color]="'red'"></rjui-card-1>
+        <rjui-card-1 style="background-color:white;" [color]="'green'"></rjui-card-1>
+        <rjui-card-1 style="background-color:white;" [color]="'yellow'"></rjui-card-1>
+        <rjui-card-1 style="background-color:white;" [color]="'blue'"></rjui-card-1>
+        <rjui-card-1 style="background-color:white;" [color]="'purple'"></rjui-card-1>
+    </ng-container>
+    <ng-container api>
+      <pre>
+  <code>
+    &#64;Input() icon = "bell-o";
+    &#64;Input() color = "gray";
+    &#64;Input() title = "Title";
+    &#64;Input() type = "Type";
+    &#64;Input() active = false;
+  </code>
+</pre>
+    </ng-container>
+    <ng-container usage>
+      <pre>
+        <code>
+          &lt;ipz-card-1 [title]="string" [type]="string" [color]="color"&gt;&lt;/ipz-card-1&gt;
+        </code>
+      </pre>
+    </ng-container>
+    <ng-container dependencies>
+      None
+    </ng-container>
+
+  </rjui-documentation>
+
+  <rjui-documentation id="doc2" title="Card 2">
+    <ng-container example>
+        <rjui-card-2 [color]="'red'" [data]="'6%'"></rjui-card-2>
+        <rjui-card-2 [color]="'yellow'" [data]="'42%'"></rjui-card-2>
+        <rjui-card-2 [color]="'green'" [data]="'96%'"></rjui-card-2>
+    </ng-container>
+    <ng-container api>
+      <pre>
+      <code>
+          Input() color = "green";
+          Input() data = "72%";
+          Input() label = "Email Open Rate";
+      </code>
+    </pre>
+    </ng-container>
+    <ng-container usage>
+      <pre>
+        <code>
+          &lt;ipz-card-2 [data]="string" [label]="string" [color]="color"&gt;&lt;/ipz-card-2&gt;
+        </code>
+      </pre>
+    </ng-container>
+    <ng-container dependencies>
+        None
+      </ng-container>
+  </rjui-documentation>
+
+  <rjui-documentation id="doc3" title="Card 3">
+    <ng-container example>
+        <rjui-card-3></rjui-card-3>
+        <rjui-card-3></rjui-card-3>
+    </ng-container>
+    <ng-container api>
+      <pre>
+      <code>
+          Input() icon = "phone";
+          Input() title = "B. Lloyder";
+          Input() date = new Date().toLocaleDateString();
+          Input() time = new Date().toLocaleTimeString();
+          Input() bodyText = "Good Guy. Seems open to opportunities. He really likes to go to awesome sportsball parties";
+      </code>
+    </pre>
+    </ng-container>
+    <ng-container usage>
+      <pre>
+        <code>
+          &lt;ipz-card-3&gt;&lt;/ipz-card-3&gt;
+        </code>
+      </pre>
+    </ng-container>
+    <ng-container dependencies>
+        None
+      </ng-container>
+  </rjui-documentation>
+
+  <rjui-documentation id="doc4" title="Recent Lead">
+    <ng-container example>
+      <rjui-recent-lead></rjui-recent-lead>
+    </ng-container>
+    <ng-container api>
+      <pre>
+        <code>
+            Input() lob:string = "";
+            Input() name:string = "";
+            Input() source:string = "";
+            Input() date:Date = new Date();
+        </code>
+      </pre>
+    </ng-container>
+    <ng-container usage>
+      <pre>
+        <code>
+          &lt;ipz-recent-lead&gt;&lt;/ipz-recent-lead&gt;
+        </code>
+      </pre>
+    </ng-container>
+    <ng-container dependencies>
+        None
+      </ng-container>
+  </rjui-documentation>
+</rjui-generic-page>

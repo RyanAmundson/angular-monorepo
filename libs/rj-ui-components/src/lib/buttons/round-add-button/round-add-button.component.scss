@@ -1,0 +1,30 @@
+@import '../../themes/_basic-theme.scss';
+.add-button{
+    display:flex;
+    flex: 0 0 auto;
+    background-color: theme(aa-yellow);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: none;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.1s;
+
+    &:hover {
+        outline:none;
+        box-shadow: 0 0 3pt 2pt theme(aa-yellow);
+        background-color: darken(theme(aa-yellow), 10%);
+    }
+
+    &:focus {
+        outline:none;
+        box-shadow: 0 0 3pt 2pt darken(theme(aa-yellow), 10%);
+    }
+
+}

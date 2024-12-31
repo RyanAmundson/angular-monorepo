@@ -1,0 +1,33 @@
+
+@import '../_app-theme.scss';
+
+
+
+.header{
+    @include header($z-index:2);
+}
+
+.card-list{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.section-list {
+    width:200px;
+}
+
+.org-tile{
+    height:150px;
+    width:7rem;
+    border: 1px solid black;
+    display:flex;
+    flex-direction:column;
+    flex:1 1 100%;
+    justify-content:center;
+    align-items:center;
+    color:lightgray;
+    border-radius:5px;
+
+
+  }

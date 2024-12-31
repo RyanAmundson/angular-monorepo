@@ -1,0 +1,72 @@
+@mixin flex {
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin scrollbars($size, $foreground-color, $opacity,  $background-color: mix($foreground-color, white,  50%)) {
+	// For Google Chrome
+	::-webkit-scrollbar {
+		width: $size;
+		border-radius:5px;;
+
+	}
+  
+	::-webkit-scrollbar-thumb {
+		background: $foreground-color;
+		opacity:$opacity;
+		// visibility:hidden;
+		border-radius:25px;
+
+		&:hover{
+			visibility:visible;
+			background-color: lighten($foreground-color,10%);
+		}
+	}
+  
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+  
+	// For Internet Explorer
+	body {
+	  scrollbar-face-color: $foreground-color;
+	  scrollbar-track-color: $background-color;
+	}
+}
+
+
+
+
+
+@mixin red{
+    color:#dc3545;
+    border-color:#dc3545
+}
+@mixin blue{
+    color:#007bff;
+    border-color:#007bff;
+}
+@mixin green{
+    color: #28a745;
+    border-color: #28a745;
+}
+@mixin purple{
+    color:#6f42c1;
+    border-color:#6f42c1;
+}
+@mixin pink{
+    color:#e83e8c;
+    border-color:#e83e8c;
+}
+@mixin cyan{
+    color:#17a2b8;
+    border-color:#17a2b8;
+}
+@mixin orange{
+    color:#fd7e14;
+    border-color:#fd7e14;
+}
+@mixin yellow{
+    color:#ffc107;
+    border-color:#ffc107;
+}

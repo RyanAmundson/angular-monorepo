@@ -6,3 +6,13 @@
 // @import 'tailwindcss/utilities';
 
 /* You can add global styles to this file, and also import other style files */
+@import '../../../libs/rj-ui-components/src/lib/styles/_mixins.scss';
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../../../libs/rj-ui-components/src/lib/themes/_basic-theme.scss";
+
+html, body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

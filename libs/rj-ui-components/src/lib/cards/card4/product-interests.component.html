@@ -1,0 +1,38 @@
+<div class="panel">
+  <div class="panel-heading-blue">
+      <div class="panel-title">
+          Product Interests
+          <i class="fa fa-plus"></i>
+      </div>
+  </div>
+  <div class="panel-body">
+      <table style="width:100%;">
+          <tr>
+              <th></th>
+              <th>Product</th>
+              <th>Status</th>
+              <th>Target</th>
+              <th></th>
+              <th></th>
+          </tr>
+          <tr class="parent-row" *ngFor="let opportunity of opportunities">
+              <td>
+                  <i class="fa {{opportunity.lineOfBusinessName | lineOfBusinessIcon}}"></i>
+                  <div>{{opportunity.stageName}}</div>
+              </td>
+              <td>{{opportunity.productName}}</td>
+              <td>{{opportunity.statusName}} {{opportunity.statusChangedDate | date: 'MM/dd/yyyy'}}</td>
+              <td>{{opportunity.targetName}}</td>
+              <td>
+                  {{opportunity.stageName === 'New' ? 'X-Date' : 'Renewal'}}<br />
+                  {{opportunity.eventDate | date: 'MM/dd/yyyy'}}
+              </td>
+              <td>
+                  <a href="">
+                      <i class="fa fa-chevron-down"></i>
+                  </a>
+              </td>
+          </tr>
+      </table>
+  </div>
+</div>

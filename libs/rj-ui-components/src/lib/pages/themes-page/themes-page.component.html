@@ -1,0 +1,72 @@
+<ipz-generic-page title="Styling">
+    <documentation title="Global Styling" id="doc1">
+      <ng-container example>
+        <h4>Global Styling</h4>
+        <p>
+            CSS generated from sass styling. Class based.
+          </p>
+        </ng-container>
+        <ng-container api>
+          
+          include basic-theme in Angular-cli.json/angular.json in styles array.
+
+        </ng-container>
+        <ng-container usage>
+          <h4>Acknowledged Class List:</h4>
+          -Bootstrap naming convention-
+        </ng-container>
+      </documentation>
+
+      <documentation title="Scoped Styling" id="doc2">
+        <ng-container example>
+          <h4>Scoped Styling</h4>
+          <p>
+            Per component styling.
+          </p>
+        </ng-container>
+        <ng-container api>
+          No defined api, more freedom with scoped styling.
+        </ng-container>
+        <ng-container usage>
+          Use normal css/sass.
+        </ng-container>
+      </documentation>
+
+      <documentation title="Third Party Styling" id="doc3">
+        <ng-container example>
+          <h4>Third Party Styling</h4>
+          <p>
+            Global CSS generated from sass styling. Class based.
+          </p>
+        </ng-container>
+        <ng-container api>
+          No defined API
+        </ng-container>
+        <ng-container usage>
+          Automatically applied with global theme.
+        </ng-container>
+      </documentation>
+      
+      <documentation title="First Party Styling" id="doc4">
+        <ng-container example>
+          <h4>First Party Styling</h4>
+          <p>
+            Sass theme imported into top level module. Component style imported from module theme sass.
+          </p>
+        </ng-container>
+        <ng-container api>
+          <br>Functions: 
+          <br> - theme(name,scale?)
+          <br> -- Grab the theme available theme value and optionally scale.
+          <br> - theme-or-default(name,default,scale?)
+          <br> -- grab theme value or default if none exists. Optionally scale.
+          <br> Mixins:
+          <br> Variables:
+          <br>
+
+
+        </ng-container>
+        <ng-container usage>
+        </ng-container>
+      </documentation>
+</ipz-generic-page>

@@ -1,0 +1,93 @@
+﻿
+.panel{
+    position:relative;
+    margin-bottom:15px;
+    background-color:white;
+    .panel-heading-blue{
+        background-color:#0073bf;
+
+        .panel-title{
+            color:white;
+            font-size:1.1em;
+            font-weight:500;
+            padding:.75em 1em;
+
+            .fa-plus{
+                text-align: center;
+                float: right;
+                display: inline-block;
+                width: 1.75em;
+                height: 1.75em;
+                text-align: center;
+                border: 1px solid #20936a;
+                border-radius: 50%;
+                color: #fff;
+                background-color: #41b516;
+                cursor: pointer;
+                -webkit-transition: all 0.2s ease-in;
+                transition: all 0.2s ease-in;
+                padding: 5px;
+            }
+            .fa-times{
+                text-align: center;
+                float: right;
+                display: inline-block;
+                width: 1.75em;
+                height: 1.75em;
+                text-align: center;
+                border: 1px solid darkred;
+                border-radius: 50%;
+                color: #fff;
+                background-color: red;
+                cursor: pointer;
+                -webkit-transition: all 0.2s ease-in;
+                transition: all 0.2s ease-in;
+                padding: 5px;
+            }
+        }
+    }
+
+    .panel-body{
+        padding:15px;
+    }
+}
+
+.flyout {
+    position: relative;
+}
+
+.flyout-container {
+    width: 400px;
+    position: absolute;
+    text-align: left;
+    z-index: 1;
+    top: 12px;
+    right: -177px;
+    margin-top: 10px;
+    margin-left: -210px;
+    background-color: white;
+    color: #585f69;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+.flyout-container::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent #004C78 transparent;
+}
+
+.fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.fadeIn {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+    z-index: 7;
+}

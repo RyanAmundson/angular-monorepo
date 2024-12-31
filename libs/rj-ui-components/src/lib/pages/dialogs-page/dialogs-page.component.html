@@ -1,0 +1,84 @@
+<ipz-generic-page title="Alerts">
+    <documentation id="doc1" title="Alerts">
+      <ng-container example>
+        <basic-alert [type]="'warning'" [message]="'this is a warning alert'"></basic-alert>
+        <basic-alert [type]="'success'" [message]="'this is a success alert'"></basic-alert>
+        <basic-alert [type]="'error'" [message]="'this is a error alert'"></basic-alert>
+        <basic-alert [type]="'default'" [message]="'this is a default alert'"></basic-alert>
+        <button (click)="showAlert('default', 'default', 'OK')">default alert</button>
+        <button (click)="showAlert('warning', 'warning','This is the action text')">warning alert</button>
+        <button (click)="showAlert('success', 'success')">success alert</button>
+        <button (click)="showAlert('error', 'error')">error alert</button>
+      </ng-container>
+
+      <ng-container api>
+        <b>Input</b>
+        <table>
+          <tr>
+            <th>name</th>
+            <th>type</th>
+          </tr>
+          <tr>
+            <td>type</td>
+            <td>string</td>
+          </tr>
+          <tr>
+            <td>message</td>
+            <td>string</td>
+          </tr>
+          <tr>
+            <td>actionText</td>
+            <td>string</td>
+          </tr>
+        </table>
+
+<br>
+
+        <b>Output</b>
+        <table>
+          <tr>
+            <th>name</th>
+            <th>type</th>
+          </tr>
+          <tr>
+            <td>actionClicked</td>
+            <td>Observable</td>
+          </tr>
+          <tr>
+            <td>cancelClicked</td>
+            <td>Observable</td>
+          </tr>
+          <tr>
+            <td>dismissClicked</td>
+            <td>Observable</td>
+          </tr>
+        </table>
+
+      </ng-container>
+
+      <ng-container usage>
+        <pre>
+            <code>
+            showAlert(type: string, message: string, actionText?: string) {{'{'}}
+                let alertRef = this.layout.alert(BasicAlertComponent, {{'{'}} type: type, message: message, actionText: actionText {{'}'}});
+                let alert: BasicAlertComponent = alertRef.instance;
+            
+                alert.actionClicked.subscribe((result) => {{'{'}}
+                  console.log("action");
+                  {{'}'}})
+                alert.cancelClicked.subscribe((result) => {{'{'}}
+                  console.log("cancel");
+                  {{'}'}})
+                alert.dismissClicked.subscribe(() => {{'{'}}
+                  alertRef.destroy();
+                  {{'}'}})
+            {{'}'}}
+            </code>
+        </pre>
+      </ng-container>
+
+      <ng-container dependencies>
+      </ng-container>
+
+    </documentation>
+</ipz-generic-page>

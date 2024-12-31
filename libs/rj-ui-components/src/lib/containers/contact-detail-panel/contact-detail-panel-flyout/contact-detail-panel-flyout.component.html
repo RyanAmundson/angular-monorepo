@@ -1,0 +1,14 @@
+<div (click)="$event.stopPropagation()">
+    <div class="modal-header">
+        <h3 class="modal-title">
+            {{title}}
+        </h3>
+    </div>
+    <div class="modal-body">
+        <ng-content></ng-content>
+        <div>
+            <button *ngIf="okClick?.observers?.length > 0" class="btn btn-default" (click)="okClick.emit()">OK</button>
+            <button *ngIf="cancelClick?.observers?.length > 0" class="btn btn-default" (click)="cancelClick.emit()">Cancel</button>
+        </div>
+    </div>
+</div>

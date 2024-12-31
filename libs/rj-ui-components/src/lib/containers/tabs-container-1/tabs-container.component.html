@@ -1,0 +1,27 @@
+<div class="container">
+	<mat-tab-group dynamicHeight>
+		<mat-tab label="{{title}}">
+			<div class="tab-body">
+				<ng-content select="[example]"></ng-content>
+			</div>
+		</mat-tab>
+		<mat-tab label="API">
+			<div class="tab-body">
+				<ng-content select="[api]"></ng-content>
+			</div>
+		</mat-tab>
+		<mat-tab label="Usage">
+			<div class="tab-body">
+				<ng-content select="[usage]"></ng-content>
+			</div>
+		</mat-tab>
+		<mat-tab label="Dependencies">
+			<div class="tab-body">
+				<ng-content select="[dependencies]"></ng-content>
+			</div>
+		</mat-tab>
+	</mat-tab-group>
+	<mat-chip-list>
+		<mat-chip *ngFor="let label of labels" title="{{label}}">{{label}}</mat-chip>
+	</mat-chip-list>
+</div>

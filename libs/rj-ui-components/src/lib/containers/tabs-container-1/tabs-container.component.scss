@@ -1,0 +1,41 @@
+
+@import 'basic-theme';
+
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+    align-items:stretch;
+    background-color:white;
+    margin:theme(margin, $scale: 2);
+    color: get-theme(color);
+    @include z-index(2, $shadow:true);
+    flex: 1 1 auto;
+    font-family:theme(font-family);
+
+    mat-tab-group{
+        display:flex;
+        flex: 1 1 100%;
+        font-family:theme(font-family);
+        mat-tab{
+            font-family:theme(font-family);
+        }
+    }
+
+
+    .tab-body{
+        min-height:10rem;
+        padding:theme(default-padding);
+        display:flex;
+        flex-wrap:wrap;
+        flex-direction:column;
+        align-items: stretch;
+        justify-content: stretch;
+        flex: 1 1 100%;
+    }
+
+    mat-chip-list{
+        margin:5px;
+    }
+}

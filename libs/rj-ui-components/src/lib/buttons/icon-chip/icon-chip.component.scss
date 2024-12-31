@@ -1,0 +1,53 @@
+@import '../../themes/_basic-theme.scss';
+.chip{
+    // @extend .clickable;
+    
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+    justify-content: space-between;
+    max-width:75px;
+
+    border: theme(border-3);
+    border-radius:theme(chip-border-radius);
+    background:theme(accent-bg-color);
+    margin-right:theme(margin,0.5);
+    margin-bottom:theme(margin,0.5);
+    color:theme(aa-primary-color);
+    line-height:theme(line-height);
+
+    &:hover{
+        background:darken(theme(accent-bg-color),10%);
+        border: 1px solid theme(accent-bg-color);
+    }
+
+    .title{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex:1 1 75%;
+
+    }
+    .icon{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex:1 1 25%;
+
+        border-radius:theme(chip-border-radius);
+        border: theme(border-3);
+        font-size: theme(font-size);
+        padding:theme(padding,0.25);
+
+        mat-icon{
+            display:flex;
+            align-content: center;
+            justify-content: center;
+            font-size: theme(font-size);
+            height:16px;
+            width:16px;
+
+        }
+        
+    }
+}

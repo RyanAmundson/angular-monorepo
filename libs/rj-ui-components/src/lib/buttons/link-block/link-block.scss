@@ -1,0 +1,50 @@
+@import '../../themes/_basic-theme.scss';
+div{
+    display:inline-block;
+    span {
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        justify-content:flex-start;
+        transition: all 0.5s linear;
+        &:host(:host:hover){
+            .text{
+                background: lighten(#caecfc,5%);
+            }
+        }
+        &:host{
+            display:inline-block;
+        }
+    
+        &.highlight {
+            
+        }
+    
+        span {
+            color:rgb(64, 64, 194);
+            font-weight:450;
+            &.text{
+                display:flex;
+                padding:3px;
+                
+            }
+            
+            &.icon {
+                display:none;
+                padding:3px;
+            }
+            
+        }
+    
+        &:hover, &:active, &:focus {
+            background: #caecfc !important;
+            span {
+                &.icon {
+                    display:flex;
+                    align-self:center;
+                    justify-self:center;
+                }
+            }
+        }
+    }
+}

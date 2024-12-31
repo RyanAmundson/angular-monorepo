@@ -1,0 +1,25 @@
+﻿
+.modal-header{
+    padding: 0;
+    background-color: #004C78;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+.modal-body{
+    background-color: #F2F4F5;
+    position: relative;
+    padding: 15px;
+    .modal-title{
+        padding: .75em 1em;
+        font-weight: 500;
+        color: #fff;
+    }
+}
+
+

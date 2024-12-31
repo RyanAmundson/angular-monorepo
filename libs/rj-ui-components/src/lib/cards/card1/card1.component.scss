@@ -1,0 +1,39 @@
+
+@import '../../themes/_basic-theme.scss';
+// @import '../_cards.theme.scss';
+
+.card{
+    padding: get-theme(padding, 2);
+    box-sizing: border-box;
+    display:flex;
+    align-items: center;
+    justify-content: space-around; 
+    border: 1px solid;
+    height:100%;
+    border-left: 0.5em solid;
+    
+
+    .card-title, .card-sub-title{
+        font-weight: get-theme($mapKey:font-weight-2);
+        margin-left:get-theme(default-margin);   
+        margin-right:get-theme(margin);
+    }
+    
+    .card-title{
+        font-size:get-theme(font-size-medium);
+    }
+    .card-sub-title{
+        color:gray;
+        font-size:get-theme(font-size-small);
+        letter-spacing: 1px;
+    }
+    &:hover{
+        
+    }
+    &:active{
+
+    }
+    &:focus{
+
+    }
+}

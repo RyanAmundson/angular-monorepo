@@ -1,0 +1,54 @@
+
+@import '../../../../libs/rj-ui-components/src/lib/themes/_basic-theme.scss';
+
+.header{
+    display:flex;
+    @include header($z-index:2,$font-size:get-theme(font-size-large), $font-color:get-theme(primary-color));
+    background-color:get-theme(primary-color);
+    justify-content:flex-start;
+    font-family:theme(font-family);
+
+    .title{
+        display:flex;
+        justify-self: flex-start;
+        flex: 0 0 auto;
+        color:white;
+
+    }
+    
+    .layout-buttons{
+        display:flex;
+        flex: 1 1 50%;
+        justify-self:flex-start;
+        align-self:center;
+    }
+}
+
+.jump-to-bar{
+    display:flex;
+    justify-content:flex-start;
+    background-color:get-theme(secondary-color);
+    padding:theme(padding);
+}
+
+
+.test-modal{
+    display:flex;
+    background-color:White;
+    border: 1px solid black;
+    border-radius:7px;
+    height:200px;
+    width:200px;
+    align-items:center;
+    justify-content:center;
+
+}
+
+.overlay{
+    display:flex;
+    flex: 1 1 100%;
+    padding:3rem;
+    background-color:lightgray;
+    align-self:stretch;
+    justify-self: stretch;
+}
