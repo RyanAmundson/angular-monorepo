@@ -1,12 +1,15 @@
-import { Component, Input, ContentChildren, QueryList, ElementRef, TemplateRef, ViewChild, Output, EventEmitter, AfterContentInit, ChangeDetectorRef, ContentChild, ViewChildren } from '@angular/core';
+import { Component, Input, ContentChildren, QueryList, ElementRef, Output, EventEmitter, AfterContentInit, ChangeDetectorRef, ViewChildren, AfterViewInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { CommonModule } from '@angular/common';
 // import { Core, Custom } from '../../../assets/AngularAnimations';
 
 @Component({
-  selector: 'AA-card-holder',
+  selector: 'rjui-card-holder',
   template: `<ng-content class='holder'></ng-content>`,
+  standalone: true,
+  imports: [CommonModule],
 })
-export class CardHolder { }
+export class CardHolderComponent { }
 
 export interface BaseCard {//must have id value
   id: number | string;
@@ -16,27 +19,28 @@ export class ScrollerCard<T extends BaseCard> {
 
   id: number | string;
   get view() { return this.card.nativeElement || this.card.elRef.nativeElement || null };
-  elRef: ElementRef;
+  elRef!: ElementRef;
   index: number;
   card: any;
   status: "unchanged" | "moved" | "updated" | "added" | "deleted" = "unchanged";
-  selected: boolean = false;
+  selected = false;
   constructor(card: T, index: number, status: "unchanged" | "moved" | "updated" | "added" | "deleted" = "unchanged") {
-    this.id = card.id || this.idGenerator().next().value;
+    const generatedId = this.idGenerator().next().value as number;
+    this.id = card.id || generatedId;
     this.card = card;
     this.index = index;
     this.status = status;
   }
 
   *idGenerator() {
-    let id = 0;
+    const id = 0;
     while (true)
       yield <number>Math.random() * 100000 / 1;
   }
 }
 
 @Component({
-  selector: 'AA-horizontal-card-scroller',
+  selector: 'rjui-horizontal-card-scroller',
   templateUrl: './horizontal-card-scroller.component.html',
   styleUrls: ['./horizontal-card-scroller.component.scss'],
   animations: [
@@ -72,79 +76,77 @@ export class ScrollerCard<T extends BaseCard> {
       ]),
 
     ])
-  ]
+  ],
+  standalone: true,
+  imports: [CommonModule],
 })
 
-export class HorizontalCardScrollerComponent implements AfterContentInit {
-  @ViewChildren("scrollContent", { read: ElementRef }) scrollContainer: QueryList<ElementRef>;
-  @ContentChildren('cardListItem') cards: QueryList<ElementRef & ScrollerCard<BaseCard>>;//raw
+export class HorizontalCardScrollerComponent implements AfterContentInit, AfterViewInit {
+  @ViewChildren("scrollContent", { read: ElementRef }) scrollContainer: QueryList<ElementRef> | undefined;
+  @ContentChildren('cardListItem') cards: QueryList<ElementRef & ScrollerCard<BaseCard>> | undefined;//raw
 
-  @Input() maxSelectable: number = 0;
-  @Input() fixedWidth: number = 180;
-  @Input() maxCards: number = 0;
-  @Input() centered: boolean = false;
+  @Input() maxSelectable = 0;
+  @Input() fixedWidth = 180;
+  @Input() maxCards = 0;
+  @Input() centered = false;
 
   @Output() cardSelected: EventEmitter<any> = new EventEmitter();
   @Output() cardDeselected: EventEmitter<any> = new EventEmitter();
 
-  cardMap: Array<ScrollerCard<BaseCard>>;//formatted
-  cardHolder: typeof CardHolder = CardHolder;
-  numVisibleCardsAtAnyGivenTime: number;
+  cardMap!: Array<ScrollerCard<BaseCard>>;//formatted
+  cardHolder: typeof CardHolderComponent = CardHolderComponent;
+  numVisibleCardsAtAnyGivenTime!: number;
 
-  itemWidth: number;
+  itemWidth!: number;
   itemWidths: number[] = [];
 
-  widthOfContainer: number;
-  widthOfContent: number;
-  scrollOffset: number;
+  widthOfContainer!: number;
+  widthOfContent!: number;
+  scrollOffset!: number;
 
-  canScrollRight: boolean;
-  canScrollLeft: boolean;
+  canScrollRight = false;
+  canScrollLeft = false;
 
 
   constructor(private ref: ChangeDetectorRef) { }
 
 
   ngAfterContentInit() {
-    this.update(this.cards);
-    this.cards.changes.subscribe((changes) => this.update(changes));//update card state as the get added or removed
-  }
-
-  ngAfterContentChecked() {
-
+    this.update();
+    this.cards?.changes.subscribe(() => this.update());//update card state as the get added or removed
   }
 
   ngAfterViewInit() {
     this.updateScrollContainer();
-    this.scrollContainer.changes.subscribe((changes) => {
+    this.scrollContainer?.changes.subscribe(() => {
       this.updateScrollContainer();
-    })
+    });
   }
 
-  update(changes) {
-    if (!this.cardMap) this.cardMap = new Array();
+  update() {
+    if (!this.cardMap) this.cardMap = [];
 
-    var i = 0;
+    let i = 0;
     while (i < this.cardMap.length) {//need to manage index due to in place manipulation
       if (!this.checkRemoved(this.cardMap[i], i)) {
         i++; //increment if not deleted
       }
     }
-    this.cards.toArray().forEach((c, idx) => {
+    this.cards?.toArray().forEach((c, idx) => {
       this.getStatus(c, idx);
     })
-    this.cardMap = this.cardMap.slice(0, this.cards.length)//remove leftovers
+    this.cardMap = this.cardMap.slice(0, this.cards?.length)//remove leftovers
   }
 
   checkRemoved(card: ScrollerCard<BaseCard>, idx: number): boolean {
     let removed = false;
-    let matchIndex = this.cards.toArray().findIndex((c) => (c.id) == card.id);
+    const matchIndex = this.cards?.toArray().findIndex((c) => (c.id) == card.id);
 
     if (matchIndex == -1) {
       removed = true;
       this.cardMap.splice(idx, 1);
     }
-    else if (idx != matchIndex) {
+    else if (idx != matchIndex && matchIndex !== undefined) {
       this.cardMap[idx].status = "moved";
       this.cardMap[idx].index = matchIndex;
     }
@@ -153,16 +155,14 @@ export class HorizontalCardScrollerComponent implements AfterContentInit {
   }
 
   getStatus(card: BaseCard, index: number) {
-    let matchIndex = this.cardMap.findIndex((x) => { return card.id == x.id });
+    const matchIndex = this.cardMap.findIndex((x) => { return card.id == x.id });
 
     if (matchIndex == -1) {
       this.cardMap.splice(index, 0, new ScrollerCard(card, index, "added"));
-
     } else if (matchIndex != index) {
       this.cardMap[index].status = "moved";
       this.cardMap[index].index = index;
       this.cardMap[index].card = card;
-
     } else if (matchIndex == index) {
       this.cardMap[index].card = card;
       this.cardMap[index].status = "unchanged";
@@ -182,13 +182,13 @@ export class HorizontalCardScrollerComponent implements AfterContentInit {
     //scroll horizontally with vertical scroll
     switch (direction) {
       case 'left':
-        this.scrollContainer.first.nativeElement.scrollBy({
+        this.scrollContainer?.first?.nativeElement?.scrollBy({
           left: -this.itemWidth,
           behavior: 'smooth'
         });
         break;
       case 'right':
-        this.scrollContainer.first.nativeElement.scrollBy({
+        this.scrollContainer?.first?.nativeElement?.scrollBy({
           left: this.itemWidth,
           behavior: 'smooth'
         });
@@ -199,11 +199,11 @@ export class HorizontalCardScrollerComponent implements AfterContentInit {
 
   private updateScrollContainer(){
     //timeout until animation finishes
-    setTimeout(_ => {
-      this.widthOfContainer = this.scrollContainer.first.nativeElement.offsetWidth || this.scrollContainer.first.nativeElement.clientWidth;
-      this.widthOfContent = this.scrollContainer.first.nativeElement.scrollWidth;
-      this.scrollOffset = this.scrollContainer.first.nativeElement.scrollLeft;
-      this.itemWidth = this.widthOfContent / this.cards.length;
+    setTimeout(() => {
+      this.widthOfContainer = this.scrollContainer?.first?.nativeElement?.offsetWidth || this.scrollContainer?.first?.nativeElement?.clientWidth;
+      this.widthOfContent = this.scrollContainer?.first?.nativeElement?.scrollWidth ?? 0;
+      this.scrollOffset = this.scrollContainer?.first?.nativeElement?.scrollLeft ?? 0;
+      this.itemWidth = this.cards?.length ? (this.widthOfContent / this.cards.length) : 0;
     }, 1500);
   }
 }

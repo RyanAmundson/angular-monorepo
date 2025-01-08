@@ -1,0 +1,18 @@
+﻿<div class="confirm-modal">
+    <div class="modal-header">
+        <h3 class="modal-title">
+            {{title}}
+        </h3>
+    </div>
+    <div class="modal-body text-break-word">
+        {{message}}
+    </div>
+    <div class="modal-footer">
+        <ng-container *ngIf="okBtn">
+            <button (click)="yes()" type="button" [ngClass]="{'btn-danger':destructive}" class="btn btn-primary">{{okBtn}}</button>
+        </ng-container>
+        <ng-container *ngIf="noBtn">
+            <button (click)="no()" class="btn btn-default" type="button">{{noBtn}}</button>
+        </ng-container>
+    </div>
+</div>

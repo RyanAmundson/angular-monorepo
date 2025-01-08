@@ -1,0 +1,23 @@
+
+  <div class="alert" [ngStyle]="options">
+    <div class="alert-body">
+      <span class="alert-icon">
+        <i class="{{typeIconClass}}"></i>
+      </span>
+      <span class="alert-message">
+        {{message}}
+      </span>
+      <span class="alert-close">
+        <i class="fa fa-close" (click)="dismiss()" *ngIf="dismissClicked?.observers?.length"></i>
+      </span>
+    </div>
+    <div class="alert-actions">
+      <!--</div> *ngIf="action"> -->
+      <button *ngIf="actionClicked?.observers?.length" class="alert-action-button" (click)="actionClick()">
+        {{actionText || 'Action'}}
+      </button>
+      <button *ngIf="cancelClicked.observers.length" class="alert-cancel-button" (click)="cancelClick()">
+        Cancel
+      </button>
+    </div>
+  </div>

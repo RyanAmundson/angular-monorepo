@@ -1,0 +1,102 @@
+
+@import '../../../_app-theme.scss';
+
+.alert{
+    
+    display:flex;
+    flex-direction:column;
+    align-items: stretch;
+    justify-content: stretch;
+    width:300px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25), 0 6px 6px rgba(0,0,0,0.22);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    border-radius:3px;
+    margin:theme(margin,1);
+
+    .alert-body {
+        padding: theme(padding, 0.5);
+        display:flex;
+        flex: 1 1 40%;
+        flex-direction:row;
+        justify-content: space-around;
+        align-items:center;
+
+        .alert-icon {
+            display:flex;
+            flex: 0 0 10%;
+            align-self:flex-start;
+        }
+        
+        .alert-message{
+            display:flex;
+            flex: 1 1 80%;
+            justify-content:center;
+            align-content:center;
+            word-wrap:wrap break-word;
+            -ms-word-wrap:wrap break-word;
+        }
+        
+        .alert-close{
+            display:flex;
+            flex: 0 0 10%;
+            justify-content:flex-end;
+            align-content:flex-start;
+            align-self:flex-start;
+            &:hover{
+                cursor:pointer;
+            }
+        }
+    }
+    .alert-actions{
+        display:flex;
+        flex: 1 1 60%;
+        flex-direction:row;
+        justify-content:flex-end;
+        align-items:stretch;
+        
+        .alert-cancel-button{
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            margin-right:theme(margin,0.5);
+            background:transparent;
+            border:none;
+            color:inherit;
+            margin:theme(margin,0.5);
+            padding:theme(padding,0.25);
+            padding-left:theme(padding, 0.5);
+            padding-right:theme(padding, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0);
+            &:hover{
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                cursor:pointer;
+            }
+        }
+        
+        .alert-action-button{
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            margin-right:theme(margin,0.5);
+            background: rgba(0, 0, 0, 0.3);
+            color:inherit;
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius:1px;
+            margin:theme(margin,0.5);
+            padding:theme(padding,0.25);
+            padding-left:theme(padding, 0.5);
+            padding-right:theme(padding, 0.5);
+
+            &:hover{
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                cursor:pointer;
+            }
+        }
+        
+    }
+    &:hover{
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+    &:active{
+
+    }
+    &:focus{
+
+    }
+}

@@ -6,13 +6,14 @@ import { LinkBlockComponent } from './link-block/link-block';
 import { DeleteXComponent } from './delete-x/delete-x.component';
 import { RoundAddButtonComponent } from './round-add-button/round-add-button.component';
 import { IconChipComponent } from './icon-chip/icon-chip.component';
+import { GenericPageComponent } from '../pages/generic-page/generic-page.component';
 
 @Component({
   selector: 'rjui-buttons',
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.scss'],
   standalone: true,
-  imports: [CommonModule, DocumentationComponent, AddPlusComponent, DeleteXComponent, LinkBlockComponent, IconChipComponent, RoundAddButtonComponent],    
+  imports: [CommonModule, DocumentationComponent, AddPlusComponent, DeleteXComponent, LinkBlockComponent, IconChipComponent, RoundAddButtonComponent, GenericPageComponent],    
 })
 export class ButtonsComponent {
   @ViewChildren(DocumentationComponent) sections: QueryList<DocumentationComponent> = new QueryList<DocumentationComponent>();

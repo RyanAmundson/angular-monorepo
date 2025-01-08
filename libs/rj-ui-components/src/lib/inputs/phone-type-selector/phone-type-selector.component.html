@@ -1,0 +1,10 @@
+﻿<ng-container *ngIf="phoneTypes">
+    <select [ngClass]="cssClass"
+                 name="phone-type"
+                 id="phone-type"
+                 [(ngModel)]="value"
+                 (ngModelChange)="onChange($event)">
+        <option value="undefined">Unknown</option>
+        <option *ngFor="let type of phoneTypes" [value]="type.value">{{type.key}}</option>
+    </select>
+</ng-container>

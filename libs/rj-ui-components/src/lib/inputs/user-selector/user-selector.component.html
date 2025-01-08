@@ -1,0 +1,10 @@
+﻿<ng-container *ngIf="users">
+    <select [ngClass]="cssClass"
+                 name="user"
+                 id="user"
+                 [(ngModel)]="value"
+                 (ngModelChange)="onChange($event)">
+        <option *ngIf="showUnassigned" value="undefined">Unassigned</option>
+        <option *ngFor="let user of users" [value]="user.value">{{user.key}}</option>
+    </select>
+</ng-container>

@@ -1,0 +1,10 @@
+﻿<ng-container *ngIf="contactMethods">
+    <select [ngClass]="cssClass"
+                 name="method-type"
+                 id="method-type"
+                 [(ngModel)]="value"
+                 (ngModelChange)="onChange($event)">
+        <option value="">Unknown</option>
+        <option *ngFor="let method of contactMethods" [value]="method.value">{{method.key}}</option>
+    </select>
+</ng-container>

@@ -7,8 +7,8 @@
     <div class="modal-body">
         <ng-content></ng-content>
         <div>
-            <button *ngIf="okClick?.observers?.length > 0" class="btn btn-default" (click)="okClick.emit()">OK</button>
-            <button *ngIf="cancelClick?.observers?.length > 0" class="btn btn-default" (click)="cancelClick.emit()">Cancel</button>
+            <!-- <button *ngIf="okClick?.observers?.length > 0 ?? false" class="btn btn-default" (click)="okClick.emit()">OK</button>
+            <button *ngIf="cancelClick?.observers?.length > 0 ?? false" class="btn btn-default" (click)="cancelClick.emit()">Cancel</button> -->
         </div>
     </div>
 </div>

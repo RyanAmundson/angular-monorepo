@@ -1,0 +1,17 @@
+                <div class="title-tabs-menu">
+                    <ng-container *ngIf="selectedTopic">
+                        <a class="btn btn-link" [class.stayactive]="selectedIdx == 1" (click)="tab(1)">
+                            <i class="fa fa-pie-chart"></i>
+                            <div class="hidden-md hidden-sm hidden-xs">Drilldown</div>
+                        </a>
+                        <a class="btn btn-link" [class.stayactive]="selectedIdx == 2" (click)="tab(2)">
+                            <i *ngIf="!detailBadgeCount || selectedIdx != 2" class="fa fa-list"></i>
+                            <span *ngIf="detailBadgeCount && selectedIdx == 2" class="badge" [style.background-color]="badgeColor()">{{detailBadgeCount}}</span>
+                            <div class="hidden-md hidden-sm hidden-xs">Detail</div>
+                        </a>
+                        <a class="btn btn-link" [class.stayactive]="selectedIdx == 3" (click)="tab(3)" *ngIf="canUseHeatmap">
+                            <i class="fa fa-map"></i>
+                            <div class="hidden-md hidden-sm hidden-xs">US Map</div>
+                        </a>
+                    </ng-container>
+                </div>

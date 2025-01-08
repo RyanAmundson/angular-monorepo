@@ -1,0 +1,5 @@
+<div id="tabs">
+  <span *ngFor="let tab of tabs | slice:0:max" (click)="changeActive(tab)" [class.active]="active == tab">
+    {{tab}}
+  </span>
+</div>

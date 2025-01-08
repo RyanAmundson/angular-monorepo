@@ -1,23 +1,28 @@
-import { Component, Input, OnInit, ViewChild, ContentChild, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NoResultsComponent } from '../../placeholders/no-results/no-results.component';
+import { LoadingIconComponent } from '../../placeholders/loading-icon/loading-icon.component';
 
 @Component({
-  selector: 'AA-contact-detail-panel',
+  selector: 'rjui-contact-detail-panel',
   templateUrl: "./contact-detail-panel.component.html",
-  styleUrls: ["./contact-detail-panel.component.scss"]
+  styleUrls: ["./contact-detail-panel.component.scss"],
+  standalone: true,
+  imports: [CommonModule, NoResultsComponent, LoadingIconComponent]
 })
 export class ContactDetailPanelComponent {
-    _flyoutIsOpen: boolean = false;
+    _flyoutIsOpen = false;
 
-    @Input() title: string;
-    @Input() loading: boolean;
-    @Input() noResults: boolean;
-    @Input() noResultsText: string;
+    @Input() title!: string;
+    @Input() loading!: boolean;
+    @Input() noResults!: boolean;
+    @Input() noResultsText!: string;
     @Output() flyoutOpen: EventEmitter<boolean> = new EventEmitter();
     @Output() flyoutClose: EventEmitter<boolean> = new EventEmitter();
 
 
     toggleFlyout(open?: boolean) {
-        this._flyoutIsOpen = open;
+        this._flyoutIsOpen = open ?? false;
        if (open) {
            this.flyoutOpen.emit();
        }

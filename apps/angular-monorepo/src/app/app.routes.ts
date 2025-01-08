@@ -2,6 +2,7 @@ import { Route } from '@angular/router';
 import { ButtonsComponent, UnderConstructionComponent } from '@rjui';
 import { HomePageComponent } from '@rjui';
 import { CardPageComponent } from '@rjui';
+import { ContainersComponent } from '@rjui';
 
 export const appRoutes: Route[] = [
     {
@@ -13,6 +14,11 @@ export const appRoutes: Route[] = [
       path: 'cards',
       component: CardPageComponent,
       data: { title: 'Cards' }
+    },
+    {
+      path: 'alerts',
+      component: UnderConstructionComponent,
+      data: { title: 'Alerts' }
     },
     {
       path: 'themes',
@@ -103,6 +109,11 @@ export const appRoutes: Route[] = [
       path: 'frames',
       component: UnderConstructionComponent,
       data: { title: 'Frames' }
+    },
+    {
+      path: 'viz',
+      component: UnderConstructionComponent,
+      data: { title: 'Visualization' }
     },
     {
       path: '',

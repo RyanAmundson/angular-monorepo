@@ -1,78 +1,58 @@
-import { Component, Directive, OnInit, Input, Output, EventEmitter, ContentChildren, QueryList, ElementRef, ContentChild, ViewChild, ViewChildren, ViewContainerRef, ViewRef, ComponentRef } from '@angular/core';
-import { NgTemplateOutlet, JsonPipe } from '@angular/common';
-
+import { Component, Input, Output, EventEmitter, ContentChildren, QueryList, ElementRef, ViewChild, ViewContainerRef, AfterContentInit, AfterViewInit } from '@angular/core';
 import { Card3Component } from '../../cards/card3/card3.component';
-import { ChangeDetectorRef } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  group,
-  query,
-  stagger,
-  keyframes
-} from '@angular/animations';
-// import { Core,Custom } from '../../../assets/AngularAnimations';
+import { trigger, style, animate, transition } from '@angular/animations';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'AA-filter-card-holder',
+  selector: 'rjui-filter-card-holder',
   template: `<ng-content class='holder'></ng-content>`,
-  styles: [``]
+  styles: [``],
+  standalone: true,
+  imports: [CommonModule, FormsModule] 
 })
-export class FilterCardHolder { }
-
-
+export class FilterCardHolderComponent { }
 
 @Component({
-  selector: 'AA-filter-box',
+  selector: 'rjui-filter-box',
   templateUrl: './filter-box.component.html',
   styleUrls: ['./filter-box.component.scss'],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   animations: [
-    // Core.slideUp,
-    // Core.fadeInUp,
-    // Core.slideLeft,
-    // Core.slideRight,
-    // Core.expandCircle,
-    // Core.slideFade,
-    // Core.blink,
-    // Core.pulse,
-    // Core.rubberBand,
-    // Core.listFadeIn,
-    // Core.flyInOut,
-    // Core.pieceTogether,
-    // Core.listItemFromTemplate,
-    // Custom.slide('0%','100vh',5000, 'upBy100')
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.5s', style({ opacity: 1 }))
+      ])
+    ])
   ]
 })
-export class FilterBoxComponent implements OnInit {
-  _cards;
+export class FilterBoxComponent implements AfterContentInit {
+  private _cards: QueryList<ElementRef> | undefined;
+
   @ContentChildren(Card3Component, { read: ElementRef })
   get cards() { return this._cards; }
-  set cards(cards) { cards ? this.cardList = this.createCardList(cards) : console.log("no cards"); }
-  @ViewChild('scrollContent', { read: ViewContainerRef, static: false }) scrollContainer: ViewContainerRef;
+  set cards(cards: QueryList<ElementRef> | undefined) {
+    this._cards = cards;
+    this.cardList = this.createCardList(cards);
+  }
 
-  @Input() title: string = '';
-  @Output() addNewCard: EventEmitter<string> = new EventEmitter();
+  @ViewChild('scrollContent', { read: ViewContainerRef, static: false }) scrollContainer!: ViewContainerRef;
 
-  addingCard: boolean;
-  cardList: any[];
-  component = FilterCardHolder;
+  @Input() title = '';
+  @Output() addNewCard = new EventEmitter<string>();
+
+  addingCard = false;
+  cardList: unknown[] = [];
+  component = FilterCardHolderComponent;
   showErrors = false;
-  newCardComment: string = '';
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-  }
+  newCardComment = '';
 
   ngAfterContentInit() {
-    if (this.cards)
+    if (this.cards) {
       this.cardList = this.createCardList(this.cards);
+    }
   }
 
   addButtonClick() {
@@ -80,7 +60,7 @@ export class FilterBoxComponent implements OnInit {
   }
 
   filter() {
-    //TODO: implement
+    // TODO: implement filter logic
   }
 
   saveCard(text: string) {
@@ -93,6 +73,7 @@ export class FilterBoxComponent implements OnInit {
       this.showErrors = true;
     }
   }
+
   cancelNewCard() {
     this.addingCard = false;
     this.showErrors = false;
@@ -103,17 +84,16 @@ export class FilterBoxComponent implements OnInit {
     this.scrollContainer.element.nativeElement.scrollTo(0, 0);
   }
 
-  removeCard(index) {
+  removeCard(index: number) {
     this.cardList.splice(index, 1);
   }
 
-
-
-  createCardList(cards): any[] {
-    if (cards)
+  createCardList(cards: QueryList<ElementRef> | undefined): any[] {
+    if (cards) {
       return cards.toArray().map((card) => {
-        return { type: FilterCardHolder, context: [[card.nativeElement]] };
-      })
+        return { type: FilterCardHolderComponent, context: [[card.nativeElement]] };
+      });
+    }
+    return [];
   }
-
 }

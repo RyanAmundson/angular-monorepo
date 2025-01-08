@@ -1,0 +1,17 @@
+﻿<ng-container *ngIf="pipelineStages">
+    <div class="row">
+        <div class="col stage-item" *ngFor="let stage of pipelineStages">
+            <div>{{stage.pipelineStage}}</div>
+            <div class="mt">
+                <input type="radio"
+                       name="pipeline-stage"
+                       id="{{'stage' + stage.stageId}}"
+                       [(ngModel)]="value"
+                       (ngModelChange)="onChange($event)"
+                       [value]="stage.stageId">
+                <label class="stage-icon fa" [ngClass]="stage.stageId === currentStageId ? 'fa-check-circle selected' : 'fa-circle-o unselected'" for="{{'stage' + stage.stageId}}"></label>
+            </div>
+            <div>{{stage.pipelineStatus}}</div>
+        </div>
+    </div>
+</ng-container>

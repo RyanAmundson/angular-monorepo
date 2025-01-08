@@ -1,0 +1,14 @@
+
+@import '../app-theme';
+
+
+
+.header{
+    @include header($z-index:2);
+}
+
+.card-list{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

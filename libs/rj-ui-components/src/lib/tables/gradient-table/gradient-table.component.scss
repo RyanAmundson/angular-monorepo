@@ -1,0 +1,196 @@
+
+@import 'basic-theme';
+
+#gradient-table{
+    // if parent has grid cell called layout
+    -ms-grid-row:1;
+    -ms-grid-column:1;
+    grid-area:layout;
+
+    display:-ms-grid;
+    display:grid;
+
+    grid-template: 
+    "empty top"
+    "left mc";
+
+    grid-template-areas: 
+    "empty top"
+    "left mc";
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 50px 1fr;
+    
+    -ms-grid-columns: 50px 1fr;
+    -ms-grid-rows: 50px 1fr;
+    -ms-grid-column-align:stretch;
+    -ms-grid-row-align:stretch;
+    
+    justify-content: stretch;
+    align-items: stretch;
+    justify-self: stretch;
+    align-self: stretch;
+    
+    height:100%;
+    width:100%;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: #46505a; /* Old browsers */
+
+    #gradient-top{
+        grid-area: top;
+        grid-column-start: 2;
+        grid-column-end: span 2;
+        grid-row-start: 1;
+        grid-row-end:  1;
+
+        -ms-grid-column: 2;
+        -ms-grid-row: 1;
+        -ms-grid-column-span:1;
+
+        display:flex;
+        flex-direction: row;
+        overflow-y:hidden;
+        overflow-x:hidden;
+
+        box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.7);
+        z-index:1;
+
+
+        #scroll-top{
+            display:flex;
+            flex-direction: row;
+            overflow-x:hidden;
+            overflow-y:hidden;
+            align-items:stretch;
+            justify-content: flex-start;
+            scroll-snap-points-x: repeat(50px);
+            scroll-snap-type: x mandatory;
+
+            & > span{
+                display:flex;
+                flex-direction:row;
+                align-items:center;
+                justify-content: center;
+                width:50px;
+                height:50px;
+                flex: 0 0 50px;
+                scroll-snap-align: center;
+            }
+        }
+    
+    }
+
+    #gradient-left{
+        grid-area: left;
+        -ms-grid-column: 1;
+        -ms-grid-row: 2;
+        display:flex;
+        flex-direction: column;
+        overflow-y:hidden;
+        overflow-x:hidden;
+
+        box-shadow: 5px 0px 15px 0px rgba(0,0,0,0.7);
+
+        z-index:1;
+
+
+        #scroll-left{
+            display:flex;
+            flex-direction:column;
+            overflow-y:hidden;
+            overflow-x:hidden;
+            align-items:stretch;
+            justify-content: flex-start;
+            scroll-snap-type: mandatory;
+            scroll-snap-points-y: repeat(50px);
+            scroll-snap-type: y mandatory;
+
+            
+            & > span{
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content: center;
+                width:50px;
+                height:50px;
+                flex: 0 0 50px;
+                scroll-snap-align: center;
+            }
+        }
+    }
+
+    .error-container{
+        grid-area: mc;
+        -ms-grid-column: 2;
+        -ms-grid-row: 2;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content: center;
+        flex:1 1 100%;
+        background:white;
+    }
+
+    #gradient-content{
+        grid-area: mc;
+        -ms-grid-column: 2;
+        -ms-grid-row: 2;
+        scroll-snap-points-x: repeat(50px);
+        scroll-snap-points-y: repeat(50px);
+        scroll-snap-type: mandatory;
+        background:white;
+
+        overflow:scroll;
+        
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        justify-content: stretch;
+        flex:1 1 100%;
+
+        .gradient-row {
+            display:flex;
+            flex-direction:row;
+            flex:0 0 auto;
+
+            .gradient-cell{
+                color:black;
+                display:flex;
+                outline:1px solid black;
+                align-items: center;
+                justify-content: Center;
+                height:50px;
+                width:50px;
+                flex:0 0 50px;
+                
+            }
+        }
+
+
+
+    }
+
+}
+
+/* width */
+::-webkit-scrollbar {
+    height:5px;
+    width:5x;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius:1px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}

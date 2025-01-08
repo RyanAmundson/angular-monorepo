@@ -1,0 +1,110 @@
+<div id="gradient-table">
+    <div id="gradient-top">
+        <div id="scroll-top" #scrollTop (scroll)="scroll($event)">
+            <span *ngFor="let top of xLegend;let i = index ">
+                {{top}}
+            </span>
+        </div>
+    </div>
+    <div id="gradient-left">
+        <div id="scroll-left" #scrollLeft (scroll)="scroll($event)">
+            <span *ngFor="let left of yLegend;let i = index">
+                {{left}}
+            </span>
+        </div>
+    </div>
+    <ng-container *ngIf="!errors || errors?.length == 0">
+        <div id="gradient-content" #gradientContent [ngStyle]="{}" (scroll)="scroll($event)">
+            <span class="gradient-row" *ngFor="let row of dataSource; let i = index" [ngStyle]="{'height': cellSize}">
+                <span class="gradient-cell" *ngFor="let entry of row;let j = index" [ngStyle]="{'height': cellSize, 'width':cellSize, 'background':gradientMap.get(entry)}">
+                    {{entry}}
+                </span>
+            </span>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="errors && errors?.legnth > 0">
+        <div class="error-container">
+            <span *ngFor="let error of errors">
+                {{error}}
+            </span>
+        </div>
+    </ng-container>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="gradient-table">
+    <table>
+        <tr>
+            <td>empty</td>
+            <td *ngFor="let top of dataSource[0]">
+                top
+            </td>
+        </tr>
+    </table>
+    <div id="middle">
+
+        <table>
+            <tr *ngFor="let top of dataSource[0]">
+                <td>
+                    left
+                </td>
+            </tr>
+        </table>
+        <table id="outer-table">
+            <tr *ngFor="let row of dataSource; let i = index">
+                <td *ngFor="let entry of row;let j = index">
+                    {{entry}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div> -->
+
+
+<!-- <table id="outer-table">
+        <tr id="top-row">
+            <td>
+                top
+            </td>
+        </tr>
+        <tr>
+            <td>
+                left
+            </td>
+            <td>
+                <table>
+                    <tr *ngFor="let row of dataSource; let i = index">
+                        <td *ngFor="let entry of row;let j = index">
+                            {{entry}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                right
+            </td>
+        </tr>
+        <tr>
+            <td>
+                bottom
+            </td>
+        </tr>
+    </table> -->

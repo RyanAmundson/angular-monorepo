@@ -1,0 +1,10 @@
+﻿<ng-container *ngIf="relationshipTypes">
+    <select [ngClass]="cssClass"
+                 name="relationship-type"
+                 id="relationship-type"
+                 [(ngModel)]="value"
+                 (ngModelChange)="onChange($event)">
+        <option value="">Unknown</option>
+        <option *ngFor="let type of relationshipTypes" [value]="type.value">{{type.key}}</option>
+    </select>
+</ng-container>

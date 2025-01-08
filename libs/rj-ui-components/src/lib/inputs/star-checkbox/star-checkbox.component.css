@@ -1,0 +1,22 @@
+﻿input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+input[type=checkbox] + label:before {
+    content: "\f005";
+    color: grey;
+    letter-spacing: 5px;
+}
+
+input[type=checkbox]:checked + label:before {
+    content: "\f005";
+    color: gold;
+    letter-spacing: 5px;
+}

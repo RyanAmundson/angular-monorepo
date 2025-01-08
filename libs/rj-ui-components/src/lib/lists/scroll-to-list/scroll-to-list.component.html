@@ -1,0 +1,5 @@
+<mat-nav-list dense>
+  <a [ngx-scroll-to]="elementIdList[i]" *ngFor="let section of sectionList;index as i" mat-list-item>
+    {{section | uppercase}}
+  </a>
+</mat-nav-list>

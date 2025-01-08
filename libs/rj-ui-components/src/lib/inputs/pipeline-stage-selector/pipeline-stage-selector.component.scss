@@ -1,0 +1,22 @@
+﻿input[type=radio] {
+    display: none;
+}
+
+.stage-item {
+    padding: 0 1em;
+    text-align: center;
+}
+
+.stage-icon {
+    font-size: 2em;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+
+.selected {
+    color: green;
+}
+
+.unselected {
+    color: lightgray;
+}

@@ -1,0 +1,10 @@
+﻿<ng-container *ngIf="maritalStatuses">
+    <select [ngClass]="cssClass"
+                 name="marital-status"
+                 id="marital-status"
+                 [(ngModel)]="value"
+                 (ngModelChange)="onChange($event)">
+        <option value="">Unknown</option>
+        <option *ngFor="let status of maritalStatuses" [value]="status.code">{{status.label}}</option>
+    </select>
+</ng-container>

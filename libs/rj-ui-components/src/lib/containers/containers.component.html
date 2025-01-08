@@ -1,203 +1,112 @@
-<ipz-generic-page title="Containers">
-	<documentation title="Documentation Container" id="doc1">
-		<ng-container example>
-			<documentation [title]="'Example'">
-				<ng-container example>
-					Place an example of the component/directive here.
-				</ng-container>
-				<ng-container api>
-					Give a description of the API here.
-				</ng-container>
-				<ng-container usage>
-					Show usage code here.
-				</ng-container>
-				<ng-container dependencies>
-					Show dependencies here.
-				</ng-container>
-			</documentation>
-		</ng-container>
-		<ng-container api>
+<rjui-generic-page title="Containers">
+  <rjui-documentation title="Documentation Container" id="doc1">
+    <ng-container example>
+      <rjui-documentation [title]="'Example'">
+        <ng-container example>
+          Place an example of the component/directive here.
+        </ng-container>
+        <ng-container api> Give a description of the API here. </ng-container>
+        <ng-container usage> Show usage code here. </ng-container>
+        <ng-container dependencies> Show dependencies here. </ng-container>
+      </rjui-documentation>
+    </ng-container>
+    <ng-container api> </ng-container>
+    <ng-container usage>
+      <pre>
+        <!-- <code [innerHTML]="doc1"></code> -->
+      </pre>
+    </ng-container>
+  </rjui-documentation>
 
-		</ng-container>
-		<ng-container usage>
-			<pre>
-							<code [innerHTML]="code"></code>
-						  </pre>
-		</ng-container>
-	</documentation>
+  <rjui-documentation title="Horizontal Scroller" id="doc2">
+    <ng-container example>
+      <div>
+        <rjui-horizontal-card-scroller [centered]="true">
+          <div #cardListItem id="1" class="org-tile">
+            <i class="fa fa-building"></i> tile
+          </div>
+          <!-- Repeat for other tiles -->
+        </rjui-horizontal-card-scroller>
+      </div>
+      <div style="margin-top: 30px">
+        <button class="btn btn-default" (click)="removeCard()">remove card</button>
+        <button class="btn btn-default" (click)="addCard()">add card</button>
+        <button class="btn btn-default" (click)="addCard(2)">add card at 2</button>
+        <button class="btn btn-default" (click)="removeCard(2)">remove card at 2</button>
+        <button class="btn btn-default" (click)="removeCard(2, 2)">remove card at 2,3</button>
+        <button class="btn btn-default" (click)="changeCardSet(1)">card set 1</button>
+        <button class="btn btn-default" (click)="changeCardSet(2)">card set 2</button>
+        <button class="btn btn-default" (click)="changeCardSet(3)">card set 3</button>
+      </div>
+    </ng-container>
+    <ng-container api>
+      <pre>
+        <code>
+          ContentChildren(Card1Component) cards: QueryList&lt;Card1Component&gt;;
+          Input() maxSelectable:number = 0;
+          Input() fixedWidth:number = 0;
+          Input() maxCards:number = 0;
+          Output() cardSelected:EventEmitter&lt;any&gt; = new EventEmitter();
+          Output() cardDeselected:EventEmitter&lt;any&gt; = new EventEmitter();
+        </code>
+      </pre>
+    </ng-container>
+    <ng-container usage>
+      <pre>
+        <code>
+          &lt;rjui-horizontal-card-scroller&gt;
+          &lt;rjui-card-1&gt;&lt;/rjui-card-1&gt;
+          &lt;/rjui-horizontal-card-scroller&gt;
+        </code>
+      </pre>
+    </ng-container>
+  </rjui-documentation>
 
-	<documentation title="Horizontal Scroller" id="doc2">
-		<ng-container example>
-			<div>
-				<AA-horizontal-card-scroller [centered]="true">
-					<!-- <uic-card-1 #cardListItem *ngFor="let card of cards" [id]="card.id" (click)="card.active = !card.active" [active]="card?.active"
-							[title]="card?.title" [type]="card?.type" [color]="card?.color">
-						   </uic-card-1> -->
-					<div #cardListItem id="1" class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
+  <rjui-documentation title="Filter Box" id="doc3">
+    <ng-container example>
+      <rjui-filter-box [title]="'TIMELINE'" (addNewCard)="addTimelineCard($event)">
+        <rjui-card-3 *ngFor="let card of filterCards" [icon]="card?.icon" [title]="card?.title" [date]="card?.date" [time]="card?.time" [bodyText]="card?.bodyText"></rjui-card-3>
+      </rjui-filter-box>
+    </ng-container>
+    <ng-container api>
+      <pre>
+        <code>
+          ContentChildren(Card3Component, {{'{'}} read: ElementRef {{'}'}})
+          Input() title:string = "";
+          Output() addNewCard:EventEmitter&lt;string&gt; = new EventEmitter();
+        </code>
+      </pre>
+    </ng-container>
+    <ng-container usage>
+      <pre>
+        <code>
+          &lt;rjui-filter-box [title]="'TIMELINE'" (addNewCard)="addTimelineCard($event)"&gt;
+          &lt;rjui-card-3&gt;&lt;/rjui-card-3&gt;
+          &lt;/rjui-filter-box&gt;
+        </code>
+      </pre>
+    </ng-container>
+  </rjui-documentation>
 
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="focus org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-					<div #cardListItem class="org-tile">
-						<i class="fa fa-building"></i> tile
-					</div>
-
-				</AA-horizontal-card-scroller>
-			</div>
-			<div style="margin-top:30px;">
-				<button class="btn btn-default" (click)="removeCard()">remove card</button>
-				<button class="btn btn-default" (click)="addCard()">add card</button>
-				<button class="btn btn-default" (click)="addCard(2)">add card at 2</button>
-				<button class="btn btn-default" (click)="removeCard(2)">remove card at 2</button>
-				<button class="btn btn-default" (click)="removeCard(2,2)">remove card at 2,3</button>
-				<button class="btn btn-default" (click)="changeCardSet(1)">card set 1</button>
-				<button class="btn btn-default" (click)="changeCardSet(2)">card set 2 </button>
-				<button class="btn btn-default" (click)="changeCardSet(3)">card set 3</button>
-			</div>
-		</ng-container>
-		<ng-container api>
-			<pre>
-					<code>
-					@ContentChildren(Card1Component) cards: QueryList&lt;Card1Component&gt;;
-
-					@Input() maxSelectable:number = 0;
-					@Input() fixedWidth:number = 0;
-					@Input() maxCards:number = 0;
-
-					@Output() cardSelected:EventEmitter&lt;any&gt; = new EventEmitter();
-					@Output() cardDeselected:EventEmitter&lt;any&gt; = new EventEmitter();
-					</code>
-				</pre>
-		</ng-container>
-		<ng-container usage>
-			<pre>
-					<code>
-						&lt;ipz-horizontal-card-scroller&gt;
-						&lt;ipz-card-1&gt;&lt;/ipz-card-1&gt;
-						&lt;/ipz-horizontal-card-scroller&gt;
-					</code>
-				</pre>
-		</ng-container>
-	</documentation>
-
-	<documentation title="Filter Box" id="doc3">
-		<ng-container example>
-			<AA-filter-box [title]="'TIMELINE'" (addNewCard)="addTimelineCard($event)">
-				<uic-card-3 *ngFor="let card of filterCards" [icon]="card?.icon" [title]="card?.title" [date]="card?.date" [time]="card?.time"
-				 [bodyText]="card?.bodyText">
-				</uic-card-3>
-			</AA-filter-box>
-		</ng-container>
-		<ng-container api>
-			<pre>
-			<code>
-				@ContentChildren(Card3Component, {{'{'}} read: ElementRef {{'}'}})
-				@Input() title:string = "";
-				@Output() addNewCard:EventEmitter&lt;string&gt; = new EventEmitter();
-			</code>
-		</pre>
-		</ng-container>
-		<ng-container usage>
-			<pre>
-					<code>
-						&lt;ipz-filter-box [title]="'TIMELINE'" (addNewCard)="addTimelineCard($event)"&gt;
-						&lt;ipz-card-3&gt;&lt;/ipz-card-3&gt;
-						&lt;/ipz-filter-box&gt;
-					</code>
-				</pre>
-		</ng-container>
-	</documentation>
-
-	<documentation title="Generic Panel" id="doc4">
-		<ng-container example>
-			<AA-contact-detail-panel #contactDetailsPanel [title]="'Active Marketing Programs'" [loading]="true" [noResults]="false"
-			 [noResultsText]="'no marketing plans were found'">
-
-				<AA-contact-detail-panel-flyout [title]="'Add New Marketing Plan'">
-				</AA-contact-detail-panel-flyout>
-
-			</AA-contact-detail-panel>
-		</ng-container>
-		<ng-container api>
-			<pre>
-				<code>
-
-				</code>
-			</pre>
-		</ng-container>
-		<ng-container usage>
-			<pre>
-					<code>
-
-					</code>
-				</pre>
-		</ng-container>
-	</documentation>
-
-</ipz-generic-page>
+  <rjui-documentation title="Generic Panel" id="doc4">
+    <ng-container example>
+      <rjui-contact-detail-panel #contactDetailsPanel [title]="'Active Marketing Programs'" [loading]="true" [noResults]="false" [noResultsText]="'no marketing plans were found'">
+        <rjui-contact-detail-panel-flyout [title]="'Add New Marketing Plan'"></rjui-contact-detail-panel-flyout>
+      </rjui-contact-detail-panel>
+    </ng-container>
+    <ng-container api>
+      <pre>
+        <code>
+          <!-- API details here -->
+        </code>
+      </pre>
+    </ng-container>
+    <ng-container usage>
+      <pre>
+        <code>
+          <!-- Usage details here -->
+        </code>
+      </pre>
+    </ng-container>
+  </rjui-documentation>
+</rjui-generic-page>

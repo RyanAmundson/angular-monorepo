@@ -1,13 +1,15 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
-
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 @Component({
-    selector: 'AA-contact-detail-panel-flyout',
+    selector: 'rjui-contact-detail-panel-flyout',
     templateUrl: "./contact-detail-panel-flyout.component.html",
-    styleUrls: ['./contact-detail-panel-flyout.component.scss']
+    styleUrls: ['./contact-detail-panel-flyout.component.scss'],
+    standalone: true,
+    imports: [CommonModule]
 })
 export class ContactDetailPanelFlyoutComponent{
 
-    @Input() title:string;
+    @Input() title!:string;
     @Output() okClick: EventEmitter<boolean> = new EventEmitter();
     @Output() cancelClick: EventEmitter<boolean> = new EventEmitter();
     @Output() flyoutOpen: EventEmitter<boolean> = new EventEmitter();

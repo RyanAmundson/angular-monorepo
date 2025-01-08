@@ -1,25 +1,24 @@
-import { Component, OnInit, Input, ContentChildren, QueryList, ElementRef } from '@angular/core';
-import { DocumentationComponent } from 'src/app/containers/documentation/documentation.component';
+import { Component, Input, ContentChildren, QueryList, ElementRef, AfterContentInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DocumentationComponent } from '../containers/documentation/documentation.component';
+import { LayoutComponent } from '../layouts/layout1/layout.component';
+import { HorizontalCardScrollerComponent } from '../containers/horizontal-card-scroller/horizontal-card-scroller.component';
 
 @Component({
-  selector: 'ipz-generic-page',
+  selector: 'rjui-generic-page',
   templateUrl: './generic-page.component.html',
-  styleUrls: ['./generic-page.component.scss']
+  styleUrls: ['./generic-page.component.scss'],
+  standalone: true,
+  imports: [CommonModule, DocumentationComponent, LayoutComponent, HorizontalCardScrollerComponent]
 })
-export class GenericPageComponent implements OnInit {
+export class GenericPageComponent implements AfterContentInit {
 
-  @Input() title: string;
+  @Input() title!: string;
 
   @ContentChildren(DocumentationComponent, { read: ElementRef }) sections: QueryList<DocumentationComponent> = new QueryList<DocumentationComponent>();
 
-  sectionList: string[];
+  sectionList!: string[];
   elementIdList: string[] = [];
-
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   ngAfterContentInit() {
     // this.sectionList = this.sections.map((section:any) => section.nativeElement.title);

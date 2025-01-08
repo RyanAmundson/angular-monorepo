@@ -21,9 +21,9 @@
       <div *ngIf="addingCard">
         <div class="ipz-filter-box-item">
           <textarea #txtarea placeholder="Description..." [(ngModel)]="newCardComment" class="ipz-filter-box-text-area"></textarea>
-          <button class="ipz-filter-box-save-btn btn btn-primary" [disabled]="newCardComment == '' && showErrors" (click)="saveCard(newCardComment)">Save</button>
+          <button class="ipz-filter-box-save-btn btn btn-primary" [disabled]="newCardComment === '' && showErrors" (click)="saveCard(newCardComment)">Save</button>
           <button class="ipz-filter-box-cancel-btn btn btn-warning" (click)="cancelNewCard()">Cancel</button>
-          <p *ngIf="newCardComment == '' && showErrors" class="form-error">Comment cannot be empty</p>
+          <p *ngIf="newCardComment === '' && showErrors" class="form-error">Comment cannot be empty</p>
         </div>
       </div>
       <div *ngFor="let card of cardList">

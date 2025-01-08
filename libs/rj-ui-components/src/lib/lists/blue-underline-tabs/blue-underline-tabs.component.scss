@@ -1,0 +1,33 @@
+
+@import 'basic-theme';
+
+#tabs{
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+    justify-content: space-evenly;
+    flex: 1 1 100%;
+    font-family:theme(font-family);
+
+    & > * {
+        display:flex;
+        flex: 0 0 auto;
+        font-family:theme(font-family);
+        padding-right:theme(padding);
+        padding-left:theme(padding);
+        color:theme(secondary-f-color);
+
+        &.active {
+            border-bottom:2px solid theme(secondary-color);
+            color:theme(secondary-color);
+            margin-bottom: -2px;
+        }
+
+        &:hover{
+            transition:all 1ms;
+            border-bottom: 2px solid theme(primary-color);
+            color:theme(primary-color);
+            margin-bottom: -2px;
+        }
+    }
+}

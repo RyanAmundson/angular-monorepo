@@ -1,6 +1,6 @@
 
 
-@import 'basic-theme';
+@import '../themes/basic-theme';
 
 .header{
     @include header($z-index:2);

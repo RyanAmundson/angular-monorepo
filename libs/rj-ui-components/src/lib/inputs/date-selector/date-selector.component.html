@@ -1,0 +1,12 @@
+﻿<input ngbDatepicker
+       #d="ngbDatepicker"
+       type="text"
+       class="form-control"
+       [required]="required"
+       [minDate]="minDate"
+       [maxDate]="maxDate"
+       [(ngModel)]="value"
+       (ngModelChange)="onChange($event)">
+<span class="btn btn-primary" (click)="d.toggle()">
+    <i class="fa fa-calendar light"></i>
+</span>
