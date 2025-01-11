@@ -3,8 +3,8 @@ export class ListItem {
 }
 export class MyException {
     status: number;
-    body: any;
-    constructor(status: number, body: any) {
+    body: unknown;
+    constructor(status: number, body: unknown) {
         this.status = status;
         this.body = body;
     }

@@ -19,8 +19,11 @@ import { FormsModule } from '@angular/forms';
     standalone: true,
 })
 export class UserSelectorComponent implements ControlValueAccessor {
-
-    onChange = () => { };
+    cssClass = '';
+    showUnassigned = false;
+    value: string | undefined;
+    users = [{ key: 'test', value: 'test'  }];
+    onChange = ($event: unknown) => { };
     onTouched = () => { };
 
     registerOnChange(fn: ()=>void) {

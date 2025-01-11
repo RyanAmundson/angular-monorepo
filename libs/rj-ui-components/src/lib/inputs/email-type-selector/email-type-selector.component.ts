@@ -1,5 +1,8 @@
-﻿import { Component, forwardRef, OnInit, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+﻿/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable @typescript-eslint/no-empty-function */
+import { CommonModule } from '@angular/common';
+import { Component, forwardRef, OnInit, Input } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
     selector: 'rjui-email-type-selector',
@@ -13,38 +16,39 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     ],
     standalone: true,
     imports: [
-        // Add necessary imports here
+        CommonModule,
+        FormsModule
     ]
 })
 export class EmailTypeSelectorComponent implements OnInit, ControlValueAccessor {
-    private _emailType: any;
+    private _emailType: unknown;
     @Input() cssClass: string = '';
 
-    emailTypes: IKeyValuePair<string, EmailType>[];
+    emailTypes: unknown[] = [];
     onChange = () => { };
     onTouched = () => { };
 
-    get value(): EmailType {
+    get value(): unknown {
         return this._emailType;
     }
 
-    set value(emailType: EmailType) {
+    set value(emailType: unknown) {
         this._emailType = emailType;
     }
 
     ngOnInit() {
-        this.emailTypes = app.common.lookups.EmailTypes.getList();
+        this.emailTypes = [];
     }
 
-    registerOnChange(fn: ()=>void) {
+    registerOnChange(fn: () => void) {
         this.onChange = fn;
     }
 
-    registerOnTouched(fn: ()=>void) {
+    registerOnTouched(fn: () => void) {
         this.onTouched = fn;
     }
 
-    writeValue(value: EmailType) {
+    writeValue(value: unknown) {
         this.value = value === null ? undefined : value;
     }
 }
