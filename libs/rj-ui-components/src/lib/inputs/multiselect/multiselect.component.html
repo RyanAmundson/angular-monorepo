@@ -1,4 +1,4 @@
-<div class="cuppa-dropdown" (clickOutside)="closeDropdown()">
+<!-- <div class="cuppa-dropdown" (clickOutside)="closeDropdown()">
     <div class="selected-list">
         <div class="c-btn" (click)="toggleDropdown($event)" [class.disabled]="settings.disabled">
             <span class="c-placeholder" *ngIf="selectedItems?.length === 0">{{settings.placeholder}}</span>
@@ -13,19 +13,19 @@
                     <span class="close" (click)="onItemClick(item,k,$event)" disabled="true"> ×</span>
                 </div>
             </div>
-            <span *ngIf="selectedItems?.length > settings.badgeShowLimit">+{{selectedItems?.length - settings.badgeShowLimit }}</span>
+            <span *ngIf="selectedItems?.length > settings.badgeShowLimit">+{{selectedItems?.length - settings.badgeShowLimit }}</span> -->
             <!-- <span class="fa" [ngClass]="{'fa-angle-down': !isActive,'fa-angle-up':isActive}"></span> -->
-        </div>
+        <!-- </div>
     </div>
     <div class="dropdown-list" [hidden]="!isActive">
-        <div class="list-area">
+        <div class="list-area"> -->
             <!-- <div class="pure-checkbox select-all" *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection" (click)="toggleSelectAll()">
                 <label>
                     <span [hidden]="isSelectAll">{{settings.selectAllText}}</span>
                     <span [hidden]="!isSelectAll">{{settings.unSelectAllText}}</span>
                 </label>
             </div>    -->
-            <div class="list-filter" *ngIf="settings.enableSearchFilter">
+            <!-- <div class="list-filter" *ngIf="settings.enableSearchFilter">
                 <span class="fa fa-search"></span>
                 <input type="text" [placeholder]="settings.searchPlaceholderText" [(ngModel)]="filter[labelKey]">
             </div>
@@ -37,4 +37,4 @@
             <h5 class="list-message" *ngIf="data?.length === 0">No Data Available</h5>
         </div>
     </div>
-</div>
+</div> -->

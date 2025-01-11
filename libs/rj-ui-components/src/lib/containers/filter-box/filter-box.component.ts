@@ -18,7 +18,7 @@ export class FilterCardHolderComponent { }
   templateUrl: './filter-box.component.html',
   styleUrls: ['./filter-box.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, FilterCardHolderComponent],
   animations: [
     trigger('fadeIn', [
       transition(':enter', [
@@ -32,7 +32,7 @@ export class FilterBoxComponent implements AfterContentInit {
   private _cards: QueryList<ElementRef> | undefined;
 
   @ContentChildren(Card3Component, { read: ElementRef })
-  get cards() { return this._cards; }
+  get cards():QueryList<ElementRef> { return this._cards ?? new QueryList<ElementRef>(); }
   set cards(cards: QueryList<ElementRef> | undefined) {
     this._cards = cards;
     this.cardList = this.createCardList(cards);
@@ -44,15 +44,14 @@ export class FilterBoxComponent implements AfterContentInit {
   @Output() addNewCard = new EventEmitter<string>();
 
   addingCard = false;
-  cardList: unknown[] = [];
+  cardList: {type: any, context: unknown[][]} [] = [];
   component = FilterCardHolderComponent;
   showErrors = false;
   newCardComment = '';
 
   ngAfterContentInit() {
-    if (this.cards) {
-      this.cardList = this.createCardList(this.cards);
-    }
+    // No need to check this.cards since the setter handles initialization
+    this.cardList = this.createCardList(this._cards);
   }
 
   addButtonClick() {

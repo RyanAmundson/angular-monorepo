@@ -2,7 +2,9 @@
   "name": "@angular-monorepo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "concurrently \"npx nx run rj-ui-components:build --watch=true\" \"npx nx serve angular-monorepo\""
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~18.0.0",

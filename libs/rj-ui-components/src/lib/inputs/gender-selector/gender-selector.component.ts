@@ -16,35 +16,35 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         // Add necessary imports here
     ]
 })
-export class GenderSelectorComponent implements OnInit, ControlValueAccessor {
-    private _gender: any | '';
-    @Input() cssClass: string = '';
+export class GenderSelectorComponent {
+    // private _gender: any | '';
+    // @Input() cssClass: string = '';
 
-    genderOptions: any[] = [];
-    onChange = () => { };
-    onTouched = () => { };
+    // genderOptions: any[] = [];
+    // onChange = () => { };
+    // onTouched = () => { };
 
-    get value(): any | '' {
-        return this._gender;
-    }
+    // get value(): any | '' {
+    //     return this._gender;
+    // }
 
-    set value(gender: any | '') {
-        this._gender = gender;
-    }
+    // set value(gender: any | '') {
+    //     this._gender = gender;
+    // }
 
-    ngOnInit() {
-        // Initialize genderOptions here
-    }
+    // ngOnInit() {
+    //     // Initialize genderOptions here
+    // }
 
-    registerOnChange(fn: ()=>void) {
-        this.onChange = fn;
-    }
+    // registerOnChange(fn: ()=>void) {
+    //     this.onChange = fn;
+    // }
 
-    registerOnTouched(fn: ()=>void) {
-        this.onTouched = fn;
-    }
+    // registerOnTouched(fn: ()=>void) {
+    //     this.onTouched = fn;
+    // }
 
-    writeValue(value: any | '') {
-        this.value = value === null ? '' : value;
-    }
+    // writeValue(value: any | '') {
+    //     this.value = value === null ? '' : value;
+    // }
 }

@@ -1,14 +1,14 @@
 export interface MultiselectDropdownSettings{
-    singleSelection?: Boolean;
-    placeholder?: String;
-    enableCheckAll?: Boolean;
-    selectAllText?: String;
-    unSelectAllText?: String;
-    enableSearchFilter?: Boolean;
-    maxHeight?: Number;
-    badgeShowLimit?: Number;
-    classes?: String;
-    limitSelection?: Number;
-    disabled?: Boolean;
-    searchPlaceholderText?: String;
+    singleSelection?: boolean;
+    placeholder?: string;
+    enableCheckAll?: boolean;
+    selectAllText?: string;
+    unSelectAllText?: string;
+    enableSearchFilter?: boolean;
+    maxHeight?: number;
+    badgeShowLimit?: number;
+    classes?: string;
+    limitSelection?: number;
+    disabled?: boolean;
+    searchPlaceholderText?: string;
 } 

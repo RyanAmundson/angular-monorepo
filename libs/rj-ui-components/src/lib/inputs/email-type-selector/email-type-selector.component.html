@@ -1,10 +1,10 @@
-﻿<ng-container *ngIf="emailTypes">
+﻿<!-- <ng-container *ngIf="emailTypes">
     <select [ngClass]="cssClass"
                  name="phone-type"
                  id="phone-type"
                  [(ngModel)]="value"
                  (ngModelChange)="onChange($event)">
         <option value="undefined">Unknown</option>
-        <option *ngFor="let type of emailTypes" [value]="type.value">{{type.key}}</option>
+        <option *ngFor="let type of emailTypes" [value]="type.value">{{type?.key}}</option>
     </select>
-</ng-container>
+</ng-container> -->

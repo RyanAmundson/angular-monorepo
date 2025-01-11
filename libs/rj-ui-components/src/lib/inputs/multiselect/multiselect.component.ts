@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Component, OnInit, forwardRef, Input, Output, EventEmitter } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormsModule } from '@angular/forms';
 import { ListItem, MyException } from './multiselect.model';
 import { MultiselectDropdownSettings } from './multiselect.interface';
+import { CommonModule } from '@angular/common';
 
 export { MultiselectDropdownSettings } from './multiselect.interface';
 
@@ -20,12 +21,17 @@ const noop = () => {
     templateUrl: './multiselect.component.html',
     host: { '[class]': 'defaultSettings.classes' },
     styleUrls: ['./multiselect.component.scss'],
-    providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR]
+    providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR],
+    standalone: true,
+    imports: [
+        CommonModule,
+        FormsModule
+    ]
 })
 export class MultiSelectComponent implements OnInit, ControlValueAccessor {
     @Input() data: Array<ListItem> = new Array<ListItem>();
     @Input() settings!: MultiselectDropdownSettings;
-    @Input() labelKey = "itemName";
+    @Input() labelKey = "test";
     @Input() valueKey = "id";
     @Output() selected: EventEmitter<ListItem> = new EventEmitter<ListItem>();
     @Output() deselected: EventEmitter<ListItem> = new EventEmitter<ListItem>();
@@ -75,8 +81,8 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
             return false;
         }
 
-        let found = this.isSelected(item);
-        const limit = this.settings.limitSelection !== undefined && (this.selectedItems.length < Number(this.settings.limitSelection));
+        const found = this.isSelected(item);
+        const limit = this.settings.limitSelection !== undefined && (this.selectedItems.length < this.settings.limitSelection);
 
         if (!found) {
             if (this.settings.limitSelection) {
@@ -106,29 +112,23 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
     private onTouchedCallback: () => void = noop;
     private onChangeCallback: (_: unknown) => void = noop;
 
-    writeValue(value: unknown) {
+    writeValue(value: ListItem[] | null) {
         if (value !== undefined && value !== null) {
             if (this.settings.singleSelection) {
                 try {
-
                     if (value.length > 1) {
                         this.selectedItems = [value[0]];
                         throw new MyException(404, { "msg": "Single Selection Mode, Selected Items cannot have more than one item." });
-                    }
-                    else {
+                    } else {
                         this.selectedItems = value;
                     }
-                }
-                catch (e) {
+                } catch (e: any) {
                     console.error(e.body.msg);
                 }
-
-            }
-            else {
+            } else {
                 if (this.settings.limitSelection) {
-                    this.selectedItems = value.splice(0, this.settings.limitSelection);
-                }
-                else {
+                    this.selectedItems = value.slice(0, this.settings.limitSelection);
+                } else {
                     this.selectedItems = [...value];
                 }
                 if (this.selectedItems.length === this.data.length && this.data.length > 0) {
@@ -149,15 +149,16 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
     registerOnTouched(fn: any) {
         this.onTouchedCallback = fn;
     }
-    trackByFn(index: number, item: ListItem): string | Number | null {
-        if (item[this.valueKey])
-            return item[this.valueKey];
+    trackByFn(index: number, item: ListItem): string | number | null {
+        if (item[this.valueKey as keyof ListItem]) {
+            return item[this.valueKey as keyof ListItem];
+        }
         return null;
     }
     isSelected(clickedItem: ListItem) {
         let found = false;
         this.selectedItems && this.selectedItems.forEach(item => {
-            if (clickedItem[this.valueKey] === item[this.valueKey]) {
+            if (clickedItem[this.valueKey as keyof ListItem] === item[this.valueKey as keyof ListItem]) {
                 found = true;
             }
         });

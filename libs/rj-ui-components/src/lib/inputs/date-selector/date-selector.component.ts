@@ -1,6 +1,7 @@
-﻿import { Component, forwardRef, Input } from "@angular/core";
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+﻿/* eslint-disable @typescript-eslint/no-empty-function */
+import { CommonModule } from "@angular/common";
+import { Component, forwardRef, Input } from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormsModule } from "@angular/forms";
 
 @Component({
     selector: 'rjui-date-selector',
@@ -17,23 +18,24 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
     ],
     standalone: true,
     imports: [
-        // Add necessary imports here
+        CommonModule,
+        FormsModule
     ]
 })
 export class DateSelectorComponent implements ControlValueAccessor {
-    private _date: NgbDateStruct;
-    @Input() required: boolean;
-    @Input() minDate: NgbDateStruct;
-    @Input() maxDate: NgbDateStruct;
+    private _date: unknown;
+    @Input() required!: boolean;
+    @Input() minDate!: unknown;
+    @Input() maxDate!: unknown;
 
     onChange = () => { };
-    onTouched = () => { };
+    onTouched = () => { };  
 
-    get value(): NgbDateStruct {
+    get value() {
         return this._date;
     }
 
-    set value(date: NgbDateStruct) {
+    set value(date: unknown) {
         this._date = date;
     }
 
@@ -45,7 +47,7 @@ export class DateSelectorComponent implements ControlValueAccessor {
         this.onTouched = fn;
     }
 
-    writeValue(value: NgbDateStruct) {
+    writeValue(value: unknown) {
         if (value !== undefined) {
             this.value = value;
         }
