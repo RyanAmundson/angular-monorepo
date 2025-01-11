@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { OptionCardComponent } from '@opc';
+// import { OptionCardComponent } from '@opc';
 import { LayoutComponent } from '@rj/angular-ui-components';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterModule, OptionCardComponent, LayoutComponent, MatListModule, MatButtonModule, MatMenuModule, MatIconModule],
+  imports: [CommonModule, RouterModule, LayoutComponent, MatListModule, MatButtonModule, MatMenuModule, MatIconModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
