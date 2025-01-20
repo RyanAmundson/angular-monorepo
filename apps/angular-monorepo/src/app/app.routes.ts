@@ -1,8 +1,9 @@
 import { Route } from '@angular/router';
-import { ButtonsComponent, UnderConstructionComponent } from '@rjui';
+import { ButtonsComponent, TimelineComponent, UnderConstructionComponent } from '@rjui';
 import { HomePageComponent } from '@rjui';
 import { CardPageComponent } from '@rjui';
 import { ContainersComponent } from '@rjui';
+import { TimelinePageComponent } from '@rjui';
 
 export const appRoutes: Route[] = [
     {
@@ -114,6 +115,11 @@ export const appRoutes: Route[] = [
       path: 'viz',
       component: UnderConstructionComponent,
       data: { title: 'Visualization' }
+    },
+    {
+      path: 'timeline',
+      component: TimelinePageComponent,
+      data: { title: 'Timeline' }
     },
     {
       path: '',

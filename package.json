@@ -38,6 +38,7 @@
     "@angular/compiler-cli": "~18.0.0",
     "@angular/language-service": "~18.0.0",
     "@angular/material": "^18.2.14",
+    "@frxjs/ngx-timeline": "^19.0.2",
     "@nx/devkit": "19.3.0",
     "@nx/eslint": "19.3.2",
     "@nx/eslint-plugin": "19.3.0",
