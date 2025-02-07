@@ -1,0 +1,23 @@
+<div class="events-container">
+  <h2>Events</h2>
+  <div class="events-grid">
+    <mat-card class="event-card" *ngFor="let event of events">
+      <img mat-card-image [src]="event.imageUrl" [alt]="event.title">
+      <mat-card-content>
+        <h3>{{event.title}}</h3>
+        <p class="event-meta">
+          <mat-icon>calendar_today</mat-icon>
+          <span>{{event.date | date}}</span>
+        </p>
+        <p class="event-meta">
+          <mat-icon>location_on</mat-icon>
+          <span>{{event.location}}</span>
+        </p>
+        <p class="event-description">{{event.description}}</p>
+        <mat-chip-set>
+          <mat-chip>{{event.category}}</mat-chip>
+        </mat-chip-set>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div> 

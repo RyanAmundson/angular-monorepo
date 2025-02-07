@@ -1,0 +1,38 @@
+.event-container {
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .event-content {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .event-header {
+      margin-bottom: 16px;
+
+      h3 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+
+      .event-meta {
+        display: flex;
+        gap: 16px;
+        color: #666;
+        font-size: 14px;
+      }
+    }
+
+    .event-details {
+      color: #333;
+      line-height: 1.5;
+    }
+  }
+} 

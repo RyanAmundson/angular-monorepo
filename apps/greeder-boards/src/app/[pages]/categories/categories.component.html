@@ -1,0 +1,11 @@
+<div class="categories-container">
+  <h2>Categories</h2>
+  <div class="categories-grid">
+    <div class="category-card" *ngFor="let category of categories" [style.background-image]="'url(' + category.imageUrl + ')'">
+      <div class="category-overlay">
+        <h3 class="category-name">{{category.name}}</h3>
+        <span class="event-count">{{category.eventCount}} Events</span>
+      </div>
+    </div>
+  </div>
+</div> 

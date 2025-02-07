@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      // "@opc": ["libs/opc-component-library/src/index.ts"],
       "@rj/angular-ui-components": ["libs/rj-ui-components/src/index.ts"],
       "@rjui": ["libs/rj-ui-components/src/index.ts"],
       "@ui": ["libs/opc-component-library/src/index.ts"]
